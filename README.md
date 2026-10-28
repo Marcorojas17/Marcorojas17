@@ -51,6 +51,54 @@ I'm a Senior Engineer building post-quantum infrastructure for AI agents.
 <!-- El bot de WakaTime inyectará aquí los gráficos de "Night Owl" y "Most Productive Day" -->
 
 <!--START_SECTION:waka-->
+![Code Time](http://img.shields.io/badge/Code%20Time-0%20secs-blue?style=flat)
+
+![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue?style=flat)
+
+**🐱 My GitHub Data** 
+
+> 📦 75.1 kB Used in GitHub's Storage 
+ > 
+> 💼 Opted to Hire
+ > 
+> 📜 57 Public Repositories 
+ > 
+> 🔑 4 Private Repositories 
+ > 
+📅 **I'm Most Productive on Thursday** 
+
+```text
+Monday                   713 commits         █░░░░░░░░░░░░░░░░░░░░░░░░   04.36 % 
+Tuesday                  697 commits         █░░░░░░░░░░░░░░░░░░░░░░░░   04.26 % 
+Wednesday                1112 commits        ██░░░░░░░░░░░░░░░░░░░░░░░   06.80 % 
+Thursday                 6688 commits        ██████████░░░░░░░░░░░░░░░   40.91 % 
+Friday                   4190 commits        ██████░░░░░░░░░░░░░░░░░░░   25.63 % 
+Saturday                 2035 commits        ███░░░░░░░░░░░░░░░░░░░░░░   12.45 % 
+Sunday                   912 commits         █░░░░░░░░░░░░░░░░░░░░░░░░   05.58 % 
+```
+
+
+📊 **This Week I Spent My Time On** 
+
+```text
+🕑︎ Time Zone: America/Mexico_City
+
+💬 Programming Languages: 
+No Activity Tracked This Week
+
+🔥 Editors: 
+No Activity Tracked This Week
+
+💻 Operating System: 
+No Activity Tracked This Week
+```
+
+🤖 **AI Coding This Week** 
+
+```text
+No AI Coding Activity Tracked This Week
+```
+
 
 <!--END_SECTION:waka-->
 
