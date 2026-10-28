@@ -29,14 +29,32 @@
 <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" />
 <img src="https://img.shields.io/badge/Solidity-363636?style=for-the-badge&logo=solidity&logoColor=white" />
 
+
+
+
+
+I'm a Senior Engineer building post-quantum infrastructure for AI agents.
+
 </div>
 
 <br/>
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=Marcorojas17&show_icons=true&theme=radical&hide_border=true&bg_color=050816&title_color=22d3ee&icon_color=a855f7&text_color=94a3b8" alt="GitHub Stats" width="48%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Marcorojas17&theme=radical&hide_border=true&background=050816&ring=22d3ee&fire=a855f7&currStreakNum=22d3ee&currStreakLabel=94a3b8" alt="GitHub Streak" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Marcorojas17&layout=compact&theme=radical&hide_border=true&bg_color=050816&title_color=22d3ee&text_color=94a3b8" alt="Top Languages" width="48%" />
 </div>
+
+<br/>
+
+<!-- WAKATIME START -->
+
+<!-- El bot de WakaTime inyectará aquí los gráficos de "Night Owl" y "Most Productive Day" -->
+
+<!--START_SECTION:waka-->
+
+<!--END_SECTION:waka-->
+
+<!-- WAKATIME END -->
 
 <br/>
 
