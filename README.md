@@ -18,7 +18,7 @@
 ```
 
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=22D3EE&center=true&vCenter=true&random=false&width=600&lines=Senior+Software+Engineer;Architect+of+Kronos+Protocol;Cryptography+%2B+AI+Agents" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=22D3EE&center=true&vCenter=true&random=false&width=600&lines=Senior+Software+Engineer;Architect+of+Kronos+Protocol;Cryptography+%2B+AI+Agents" alt="Typing SVG" />
 </a>
 
 <br/>
@@ -47,8 +47,6 @@ I'm a Senior Engineer building post-quantum infrastructure for AI agents.
 <br/>
 
 <!-- WAKATIME START -->
-
-<!-- El bot de WakaTime inyectará aquí los gráficos de "Night Owl" y "Most Productive Day" -->
 
 <!--START_SECTION:waka-->
 ![Code Time](http://img.shields.io/badge/Code%20Time-0%20secs-blue?style=flat)
