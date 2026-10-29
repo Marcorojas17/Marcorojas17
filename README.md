@@ -44,7 +44,7 @@ TOLUCA-GLOBAL | SYCRO PROTOCOL | POST-QUANTUM
 
 Senior Engineer building post-quantum infrastructure for AI agents.
 
-Offline-first. Zero-trust. NIST FIPS 204. NOM-151 compliant.
+Offline-first. Zero-trust. Compatible con ML-DSA-87 (FIPS 204). NOM-151 compliant.
 
 </div>
 
@@ -54,7 +54,7 @@ Human signs. Agent co-creates. Ledger attests.
 
 ```mermaid
 graph TD
-    H[👤 Human Creator — Marco Rojas] -->|Signs with ML-DSA-87<br/>NIST FIPS 204| A[🤖 Agent IA — ARKHÉ ZERO]
+    H[👤 Human Creator — Marco Rojas] -->|Signs with ML-DSA-87<br/>Compatible con ML-DSA-87 (FIPS 204)| A[🤖 Agent IA — ARKHÉ ZERO]
     A -->|Co-creates Content<br/>Code + Docs + Proofs| L{🧾 Post-Quantum Ledger}
     L -->|NOM-151 SCFI<br/>Conservación 10 años| I[(📦 IPFS / Filecoin)]
     L -->|51/49 Governance<br/>Valdovinos Consensus| S[📜 Smart Contracts — Kintsugi]
@@ -74,7 +74,7 @@ Flow: Human (ML-DSA-87 Private Key 4896B) → Agent → Signature (4627B) → Pu
 🎯 Agent Skills — Agensi Marketplace
 
 Skill Spec Status Link
-pq-signature ML-DSA-87 (Dilithium5) · NIST FIPS 204 · Level 5 · Sign ~4ms / Verify ~2ms · Zero network calls · @noble/post-quantum Live View on Agensi
+pq-signature ML-DSA-87 (Dilithium5) · Compatible con ML-DSA-87 (FIPS 204) · Compatible con · Sign ~4ms / Verify ~2ms · Zero network calls · @noble/post-quantum Live View on Agensi
 
 🔒 No key storage. No network. In-memory only. 2592B pub / 4896B priv / 4627B sig.
 
@@ -133,9 +133,13 @@ Agensi • GitHub • X
 
 </div>
 
-> **SYCRO ATTESTATION — ML-DSA-87 (FIPS 204 Level 5)**
+> **SYCRO ATTESTATION — ML-DSA-87 (FIPS 204 Compatible con)**
 > - Date: 2026-10-28
 > - Message: `Vexalyx Protocol — Toluca Global — 2026-10-28`
-> - Pub: 2592B | Sig: 4627B | Valid: ✅ NIST FIPS 204
+> - Pub: 2592B | Sig: 4627B | Valid: ✅ Compatible con ML-DSA-87 (FIPS 204)
 > - Verify: `cd sycro-pq && node scripts/verify.mjs`
 
+
+---
+## ⚠️ Legal Disclaimer
+This software provides an implementation compatible with ML-DSA-87 (FIPS 204). It is **not** officially certified by NIST. Cryptographic implementations should undergo independent security audits before production use.
