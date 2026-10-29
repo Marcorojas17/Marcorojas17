@@ -222,20 +222,27 @@
             el.classList.add('active');
         }
 
-                async function signMessage() {
+                
+        
+        async function signMessage() {
             const doc = document.getElementById('document').value;
             const btn = document.querySelector('button');
             btn.textContent = "Authenticating...";
             document.getElementById('results').style.display = 'none';
 
             try {
-                // 1. Obtener token dinámico
-                const authRes = await fetch('/api/auth', { method: 'POST' });
+                // 1. Autenticación Real
+                const authRes = await fetch('/api/auth', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: 'valdovinos', password: 'sycro-admin-2026' }) // En prod, pedir en un form
+                });
+                if (!authRes.ok) throw new Error("Auth failed");
                 const authData = await authRes.json();
                 
                 btn.textContent = "Signing...";
 
-                // 2. Firmar con el token
+                // 2. Firma
                 const response = await fetch('/api/sign', {
                     method: 'POST',
                     headers: { 
@@ -255,10 +262,12 @@
                     alert("Error: " + data.error);
                 }
             } catch (err) {
-                alert("Connection error: " + err.message);
+                alert("Error: " + err.message);
             }
             btn.textContent = "Sign Document";
         }
+
+
 
     </script>
 </body>
