@@ -13,7 +13,12 @@ import bcrypt from 'bcryptjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // VALIDACIÓN ESTRICTA: Fallar si faltan secretos
-const { JWT_SECRET, ADMIN_USER, ADMIN_PASS, PORT = 4000 } = process.env;
+
+const { PORT = 4000 } = process.env;
+const JWT_SECRET = (process.env.JWT_SECRET || '').trim();
+const ADMIN_USER = (process.env.ADMIN_USER || '').trim();
+const ADMIN_PASS = (process.env.ADMIN_PASS || '').trim();
+
 
 if (!JWT_SECRET || JWT_SECRET.length < 32) {
   console.error("❌ FATAL: JWT_SECRET debe existir y tener al menos 32 caracteres.");
