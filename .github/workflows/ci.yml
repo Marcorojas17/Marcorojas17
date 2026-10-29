@@ -10,11 +10,11 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '20' }
       
-      # API Checks
+      # --- API CHECKS ---
       - name: Install, Audit & Build API
         run: cd apps/api && npm ci && npm audit --audit-level=high && npx tsc --noEmit && npm run build
       
-      # Docker Smoke Test
+      # --- DOCKER SMOKE TEST ---
       - name: Build Docker Image
         run: docker build -t sycro-api ./apps/api
       - name: Run Docker Container
@@ -24,6 +24,6 @@ jobs:
       - name: Cleanup Docker
         run: docker rm -f sycro-api
 
-      # Web Checks
+      # --- WEB CHECKS ---
       - name: Install, Audit & Build Web
         run: cd apps/web && npm ci && npm audit --audit-level=high && npm run build
