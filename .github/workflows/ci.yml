@@ -25,5 +25,8 @@ jobs:
         run: docker rm -f sycro-api
 
       # --- WEB CHECKS ---
+      - name: Cryptographic smoke test
+        run: cd kronos-pq && npm run test:crypto
+
       - name: Install, Audit & Build Web
         run: cd apps/web && npm ci && npm audit --audit-level=high && npm run build

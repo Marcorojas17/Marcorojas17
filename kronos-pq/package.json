@@ -8,7 +8,8 @@
     "sign": "node scripts/sign.mjs",
     "verify": "node scripts/verify.mjs",
     "ai:attest": "node scripts/ai-attest.mjs",
-    "mcp:serve": "node scripts/mcp-server.mjs"
+    "mcp:serve": "node scripts/mcp-server.mjs",
+    "test:crypto": "node tests/nist/ml-dsa87-smoke.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
