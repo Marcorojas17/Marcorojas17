@@ -10,14 +10,20 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '20' }
       
-      - name: Install & Audit API
-        run: cd apps/api && npm ci && npm audit --audit-level=high
+      # API Checks
+      - name: Install, Audit & Build API
+        run: cd apps/api && npm ci && npm audit --audit-level=high && npx tsc --noEmit && npm run build
       
-      - name: Type Check & Build API
-        run: cd apps/api && npx tsc --noEmit && npm run build
-      
-      - name: Test Docker Build
+      # Docker Smoke Test
+      - name: Build Docker Image
         run: docker build -t sycro-api ./apps/api
+      - name: Run Docker Container
+        run: docker run -d --name sycro-api -p 3000:3000 sycro-api
+      - name: Wait and Test Health
+        run: sleep 5 && curl --fail http://127.0.0.1:3000/health || (docker logs sycro-api && exit 1)
+      - name: Cleanup Docker
+        run: docker rm -f sycro-api
 
-      - name: Install & Build Web
-        run: cd apps/web && npm ci && npm run build
+      # Web Checks
+      - name: Install, Audit & Build Web
+        run: cd apps/web && npm ci && npm audit --audit-level=high && npm run build
