@@ -9,6 +9,6 @@
     "verify": "node scripts/verify.mjs"
   },
   "dependencies": {
-    "@noble/post-quantum": "^0.7.1"
+    "@noble/post-quantum": "^0.4.0"
   }
 }
