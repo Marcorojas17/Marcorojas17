@@ -1,0 +1,895 @@
+{
+  "@esbuild/android-arm64@0.28.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/evanw/esbuild",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/@esbuild/android-arm64",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/@esbuild/android-arm64/README.md"
+  },
+  "@hono/node-server@2.1.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/honojs/node-server",
+    "publisher": "Yusuke Wada",
+    "email": "yusuke@kamawada.com",
+    "url": "https://github.com/yusukebe",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/@hono/node-server",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/@hono/node-server/LICENSE"
+  },
+  "@modelcontextprotocol/sdk@1.32.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/modelcontextprotocol/typescript-sdk",
+    "publisher": "Anthropic, PBC",
+    "url": "https://anthropic.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/@modelcontextprotocol/sdk",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/@modelcontextprotocol/sdk/LICENSE"
+  },
+  "@noble/hashes@1.7.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/paulmillr/noble-hashes",
+    "publisher": "Paul Miller",
+    "url": "https://paulmillr.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/@noble/hashes",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/@noble/hashes/LICENSE"
+  },
+  "@noble/post-quantum@0.4.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/paulmillr/noble-post-quantum",
+    "publisher": "Paul Miller",
+    "url": "https://paulmillr.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/@noble/post-quantum",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/@noble/post-quantum/LICENSE"
+  },
+  "accepts@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/accepts",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/accepts",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/accepts/LICENSE"
+  },
+  "ajv-formats@3.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ajv-validator/ajv-formats",
+    "publisher": "Evgeny Poberezkin",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ajv-formats",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ajv-formats/LICENSE"
+  },
+  "ajv@8.20.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ajv-validator/ajv",
+    "publisher": "Evgeny Poberezkin",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ajv",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ajv/LICENSE"
+  },
+  "bcryptjs@3.0.3": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/bcrypt.js",
+    "publisher": "Daniel Wirtz",
+    "email": "dcode@dcode.io",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/bcryptjs",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/bcryptjs/LICENSE"
+  },
+  "body-parser@2.4.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/expressjs/body-parser",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/body-parser",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/body-parser/LICENSE"
+  },
+  "buffer-equal-constant-time@1.0.1": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/goinstant/buffer-equal-constant-time",
+    "publisher": "GoInstant Inc., a salesforce.com company",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/buffer-equal-constant-time",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/buffer-equal-constant-time/LICENSE.txt"
+  },
+  "bytes@3.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/visionmedia/bytes.js",
+    "publisher": "TJ Holowaychuk",
+    "email": "tj@vision-media.ca",
+    "url": "http://tjholowaychuk.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/bytes",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/bytes/LICENSE"
+  },
+  "call-bind-apply-helpers@1.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/call-bind-apply-helpers",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/call-bind-apply-helpers",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/call-bind-apply-helpers/LICENSE"
+  },
+  "call-bound@1.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/call-bound",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/call-bound",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/call-bound/LICENSE"
+  },
+  "content-disposition@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/content-disposition",
+    "publisher": "Douglas Christopher Wilson",
+    "email": "doug@somethingdoug.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/content-disposition",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/content-disposition/LICENSE"
+  },
+  "content-type@1.0.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/content-type",
+    "publisher": "Douglas Christopher Wilson",
+    "email": "doug@somethingdoug.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/content-type",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/content-type/LICENSE"
+  },
+  "content-type@2.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/content-type",
+    "publisher": "Douglas Christopher Wilson",
+    "email": "doug@somethingdoug.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/negotiator/node_modules/content-type",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/negotiator/node_modules/content-type/LICENSE"
+  },
+  "cookie-signature@1.2.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/visionmedia/node-cookie-signature",
+    "publisher": "TJ Holowaychuk",
+    "email": "tj@learnboost.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/cookie-signature",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/cookie-signature/LICENSE"
+  },
+  "cookie@0.7.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/cookie",
+    "publisher": "Roman Shtylman",
+    "email": "shtylman@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/cookie",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/cookie/LICENSE"
+  },
+  "cors@2.8.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/expressjs/cors",
+    "publisher": "Troy Goode",
+    "email": "troygoode@gmail.com",
+    "url": "https://github.com/troygoode/",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/cors",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/cors/LICENSE"
+  },
+  "cross-spawn@7.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/moxystudio/node-cross-spawn",
+    "publisher": "André Cruz",
+    "email": "andre@moxy.studio",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/cross-spawn",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/cross-spawn/LICENSE"
+  },
+  "debug@4.4.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/debug-js/debug",
+    "publisher": "Josh Junon",
+    "url": "https://github.com/qix-",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/debug",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/debug/LICENSE"
+  },
+  "depd@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/dougwilson/nodejs-depd",
+    "publisher": "Douglas Christopher Wilson",
+    "email": "doug@somethingdoug.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/depd",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/depd/LICENSE"
+  },
+  "dotenv@18.0.9": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/motdotla/dotenv",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/dotenv",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/dotenv/LICENSE"
+  },
+  "dunder-proto@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/es-shims/dunder-proto",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/dunder-proto",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/dunder-proto/LICENSE"
+  },
+  "ecdsa-sig-formatter@1.0.11": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/Brightspace/node-ecdsa-sig-formatter",
+    "publisher": "D2L Corporation",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ecdsa-sig-formatter",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ecdsa-sig-formatter/LICENSE"
+  },
+  "ee-first@1.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jonathanong/ee-first",
+    "publisher": "Jonathan Ong",
+    "email": "me@jongleberry.com",
+    "url": "http://jongleberry.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ee-first",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ee-first/LICENSE"
+  },
+  "encodeurl@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pillarjs/encodeurl",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/encodeurl",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/encodeurl/LICENSE"
+  },
+  "es-define-property@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/es-define-property",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/es-define-property",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/es-define-property/LICENSE"
+  },
+  "es-errors@1.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/es-errors",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/es-errors",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/es-errors/LICENSE"
+  },
+  "es-object-atoms@1.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/es-object-atoms",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/es-object-atoms",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/es-object-atoms/LICENSE"
+  },
+  "esbuild@0.28.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/evanw/esbuild",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/esbuild",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/esbuild/LICENSE.md"
+  },
+  "escape-html@1.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/component/escape-html",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/escape-html",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/escape-html/LICENSE"
+  },
+  "etag@1.8.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/etag",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/etag",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/etag/LICENSE"
+  },
+  "eventsource-parser@3.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/rexxars/eventsource-parser",
+    "publisher": "Espen Hovlandsdal",
+    "email": "espen@hovlandsdal.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/eventsource-parser",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/eventsource-parser/LICENSE"
+  },
+  "eventsource@3.0.7": {
+    "licenses": "MIT",
+    "repository": "git://git@github.com/EventSource/eventsource",
+    "publisher": "Espen Hovlandsdal",
+    "email": "espen@hovlandsdal.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/eventsource",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/eventsource/LICENSE"
+  },
+  "express-rate-limit@8.7.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/express-rate-limit/express-rate-limit",
+    "publisher": "Nathan Friedly",
+    "url": "http://nfriedly.com/",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/express-rate-limit",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/express-rate-limit/license"
+  },
+  "express@5.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/expressjs/express",
+    "publisher": "TJ Holowaychuk",
+    "email": "tj@vision-media.ca",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/express",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/express/LICENSE"
+  },
+  "fast-deep-equal@3.1.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/epoberezkin/fast-deep-equal",
+    "publisher": "Evgeny Poberezkin",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/fast-deep-equal",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/fast-deep-equal/LICENSE"
+  },
+  "fast-uri@3.1.9": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/fastify/fast-uri",
+    "publisher": "Vincent Le Goff",
+    "email": "vince.legoff@gmail.com",
+    "url": "https://github.com/zekth",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/fast-uri",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/fast-uri/LICENSE"
+  },
+  "finalhandler@2.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pillarjs/finalhandler",
+    "publisher": "Douglas Christopher Wilson",
+    "email": "doug@somethingdoug.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/finalhandler",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/finalhandler/LICENSE"
+  },
+  "forwarded@0.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/forwarded",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/forwarded",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/forwarded/LICENSE"
+  },
+  "fresh@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/fresh",
+    "publisher": "TJ Holowaychuk",
+    "email": "tj@vision-media.ca",
+    "url": "http://tjholowaychuk.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/fresh",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/fresh/LICENSE"
+  },
+  "function-bind@1.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Raynos/function-bind",
+    "publisher": "Raynos",
+    "email": "raynos2@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/function-bind",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/function-bind/LICENSE"
+  },
+  "get-intrinsic@1.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/get-intrinsic",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/get-intrinsic",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/get-intrinsic/LICENSE"
+  },
+  "get-proto@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/get-proto",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/get-proto",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/get-proto/LICENSE"
+  },
+  "gopd@1.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/gopd",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/gopd",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/gopd/LICENSE"
+  },
+  "has-symbols@1.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/inspect-js/has-symbols",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "url": "http://ljharb.codes",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/has-symbols",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/has-symbols/LICENSE"
+  },
+  "hasown@2.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/inspect-js/hasOwn",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/hasown",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/hasown/LICENSE"
+  },
+  "hono@4.13.14": {
+    "licenses": "MIT",
+    "repository": "https://github.com/honojs/hono",
+    "publisher": "Yusuke Wada",
+    "email": "yusuke@kamawada.com",
+    "url": "https://github.com/yusukebe",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/hono",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/hono/LICENSE"
+  },
+  "http-errors@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/http-errors",
+    "publisher": "Jonathan Ong",
+    "email": "me@jongleberry.com",
+    "url": "http://jongleberry.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/http-errors",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/http-errors/LICENSE"
+  },
+  "iconv-lite@0.7.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pillarjs/iconv-lite",
+    "publisher": "Alexander Shtuchkin",
+    "email": "ashtuchkin@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/iconv-lite",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/iconv-lite/LICENSE"
+  },
+  "inherits@2.0.4": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/inherits",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/inherits",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/inherits/LICENSE"
+  },
+  "ip-address@10.7.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/beaugunderson/ip-address",
+    "publisher": "Beau Gunderson",
+    "email": "beau@beaugunderson.com",
+    "url": "https://beaugunderson.com/",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ip-address",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ip-address/LICENSE"
+  },
+  "ipaddr.js@1.9.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/whitequark/ipaddr.js",
+    "publisher": "whitequark",
+    "email": "whitequark@whitequark.org",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ipaddr.js",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ipaddr.js/LICENSE"
+  },
+  "is-promise@4.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/then/is-promise",
+    "publisher": "ForbesLindesay",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/is-promise",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/is-promise/LICENSE"
+  },
+  "isexe@2.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/isexe",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/isexe",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/isexe/LICENSE"
+  },
+  "jose@6.2.13": {
+    "licenses": "MIT",
+    "repository": "https://github.com/panva/jose",
+    "publisher": "Filip Skokan",
+    "email": "panva.ip@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/jose",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/jose/LICENSE.md"
+  },
+  "json-schema-traverse@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/epoberezkin/json-schema-traverse",
+    "publisher": "Evgeny Poberezkin",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/json-schema-traverse",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/json-schema-traverse/LICENSE"
+  },
+  "json-schema-typed@8.0.2": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/RemyRylan/json-schema-typed",
+    "publisher": "Remy Rylan",
+    "url": "https://github.com/RemyRylan",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/json-schema-typed",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/json-schema-typed/LICENSE.md"
+  },
+  "jsonwebtoken@9.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/auth0/node-jsonwebtoken",
+    "publisher": "auth0",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/jsonwebtoken",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/jsonwebtoken/LICENSE"
+  },
+  "jwa@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianloveswords/node-jwa",
+    "publisher": "Brian J. Brennan",
+    "email": "brianloveswords@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/jwa",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/jwa/LICENSE"
+  },
+  "jws@4.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianloveswords/node-jws",
+    "publisher": "Brian J Brennan",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/jws",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/jws/LICENSE"
+  },
+  "kronos-pq-signature@0.1.0": {
+    "licenses": "UNKNOWN",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq"
+  },
+  "lodash.includes@4.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.includes",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.includes/LICENSE"
+  },
+  "lodash.isboolean@3.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.isboolean",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.isboolean/LICENSE"
+  },
+  "lodash.isinteger@4.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.isinteger",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.isinteger/LICENSE"
+  },
+  "lodash.isnumber@3.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.isnumber",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.isnumber/LICENSE"
+  },
+  "lodash.isplainobject@4.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.isplainobject",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.isplainobject/LICENSE"
+  },
+  "lodash.isstring@4.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.isstring",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.isstring/LICENSE"
+  },
+  "lodash.once@4.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.once",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/lodash.once/LICENSE"
+  },
+  "math-intrinsics@1.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/es-shims/math-intrinsics",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/math-intrinsics",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/math-intrinsics/LICENSE"
+  },
+  "media-typer@1.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/media-typer",
+    "publisher": "Douglas Christopher Wilson",
+    "email": "doug@somethingdoug.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/media-typer",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/media-typer/LICENSE"
+  },
+  "merge-descriptors@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/merge-descriptors",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/merge-descriptors",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/merge-descriptors/license"
+  },
+  "mime-db@1.54.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/mime-db",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/mime-db",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/mime-db/LICENSE"
+  },
+  "mime-types@3.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/mime-types",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/mime-types",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/mime-types/LICENSE"
+  },
+  "ms@2.1.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/vercel/ms",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ms",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/ms/license.md"
+  },
+  "negotiator@1.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/negotiator",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/negotiator",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/negotiator/LICENSE"
+  },
+  "object-assign@4.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/object-assign",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/object-assign",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/object-assign/license"
+  },
+  "object-inspect@1.13.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/inspect-js/object-inspect",
+    "publisher": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/object-inspect",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/object-inspect/LICENSE"
+  },
+  "on-finished@2.4.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/on-finished",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/on-finished",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/on-finished/LICENSE"
+  },
+  "once@1.4.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/once",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/once",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/once/LICENSE"
+  },
+  "parseurl@1.3.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pillarjs/parseurl",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/parseurl",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/parseurl/LICENSE"
+  },
+  "path-key@3.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/path-key",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/path-key",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/path-key/license"
+  },
+  "path-to-regexp@8.4.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pillarjs/path-to-regexp",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/path-to-regexp",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/path-to-regexp/LICENSE"
+  },
+  "pkce-challenge@5.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/crouchcd/pkce-challenge",
+    "publisher": "crouchcd",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/pkce-challenge",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/pkce-challenge/LICENSE"
+  },
+  "proxy-addr@2.0.8": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/proxy-addr",
+    "publisher": "Douglas Christopher Wilson",
+    "email": "doug@somethingdoug.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/proxy-addr",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/proxy-addr/LICENSE"
+  },
+  "qs@6.17.1": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/ljharb/qs",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/qs",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/qs/LICENSE.md"
+  },
+  "range-parser@1.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/range-parser",
+    "publisher": "TJ Holowaychuk",
+    "email": "tj@vision-media.ca",
+    "url": "http://tjholowaychuk.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/range-parser",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/range-parser/LICENSE"
+  },
+  "raw-body@3.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/stream-utils/raw-body",
+    "publisher": "Jonathan Ong",
+    "email": "me@jongleberry.com",
+    "url": "http://jongleberry.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/raw-body",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/raw-body/LICENSE"
+  },
+  "require-from-string@2.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/floatdrop/require-from-string",
+    "publisher": "Vsevolod Strukchinsky",
+    "email": "floatdrop@gmail.com",
+    "url": "github.com/floatdrop",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/require-from-string",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/require-from-string/license"
+  },
+  "router@2.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pillarjs/router",
+    "publisher": "Douglas Christopher Wilson",
+    "email": "doug@somethingdoug.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/router",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/router/LICENSE"
+  },
+  "safe-buffer@5.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/feross/safe-buffer",
+    "publisher": "Feross Aboukhadijeh",
+    "email": "feross@feross.org",
+    "url": "https://feross.org",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/safe-buffer",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/safe-buffer/LICENSE"
+  },
+  "safer-buffer@2.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ChALkeR/safer-buffer",
+    "publisher": "Nikita Skovoroda",
+    "email": "chalkerx@gmail.com",
+    "url": "https://github.com/ChALkeR",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/safer-buffer",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/safer-buffer/LICENSE"
+  },
+  "semver@7.8.5": {
+    "licenses": "ISC",
+    "repository": "https://github.com/npm/node-semver",
+    "publisher": "GitHub Inc.",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/semver",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/semver/LICENSE"
+  },
+  "send@1.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pillarjs/send",
+    "publisher": "TJ Holowaychuk",
+    "email": "tj@vision-media.ca",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/send",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/send/LICENSE"
+  },
+  "serve-static@2.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/expressjs/serve-static",
+    "publisher": "Douglas Christopher Wilson",
+    "email": "doug@somethingdoug.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/serve-static",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/serve-static/LICENSE"
+  },
+  "setprototypeof@1.2.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/wesleytodd/setprototypeof",
+    "publisher": "Wes Todd",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/setprototypeof",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/setprototypeof/LICENSE"
+  },
+  "shebang-command@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/kevva/shebang-command",
+    "publisher": "Kevin Mårtensson",
+    "email": "kevinmartensson@gmail.com",
+    "url": "github.com/kevva",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/shebang-command",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/shebang-command/license"
+  },
+  "shebang-regex@3.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/shebang-regex",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/shebang-regex",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/shebang-regex/license"
+  },
+  "side-channel-list@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/side-channel-list",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/side-channel-list",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/side-channel-list/LICENSE"
+  },
+  "side-channel-map@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/side-channel-map",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/side-channel-map",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/side-channel-map/LICENSE"
+  },
+  "side-channel-weakmap@1.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/side-channel-weakmap",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/side-channel-weakmap",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/side-channel-weakmap/LICENSE"
+  },
+  "side-channel@1.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/side-channel",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/side-channel",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/side-channel/LICENSE"
+  },
+  "statuses@2.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/statuses",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/statuses",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/statuses/LICENSE"
+  },
+  "toidentifier@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/component/toidentifier",
+    "publisher": "Douglas Christopher Wilson",
+    "email": "doug@somethingdoug.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/toidentifier",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/toidentifier/LICENSE"
+  },
+  "tsx@4.23.15": {
+    "licenses": "MIT",
+    "repository": "https://github.com/privatenumber/tsx",
+    "publisher": "Hiroki Osame",
+    "email": "hiroki.osame@gmail.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/tsx",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/tsx/LICENSE"
+  },
+  "type-is@2.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/type-is",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/type-is",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/type-is/LICENSE"
+  },
+  "typescript@7.0.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/microsoft/TypeScript",
+    "publisher": "Microsoft Corp.",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/typescript",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/typescript/LICENSE",
+    "noticeFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/typescript/NOTICE.txt"
+  },
+  "unpipe@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/stream-utils/unpipe",
+    "publisher": "Douglas Christopher Wilson",
+    "email": "doug@somethingdoug.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/unpipe",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/unpipe/LICENSE"
+  },
+  "vary@1.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/vary",
+    "publisher": "Douglas Christopher Wilson",
+    "email": "doug@somethingdoug.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/vary",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/vary/LICENSE"
+  },
+  "which@2.0.2": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/node-which",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/which",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/which/LICENSE"
+  },
+  "wrappy@1.0.2": {
+    "licenses": "ISC",
+    "repository": "https://github.com/npm/wrappy",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/wrappy",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/wrappy/LICENSE"
+  },
+  "zod-to-json-schema@3.25.2": {
+    "licenses": "ISC",
+    "repository": "https://github.com/StefanTerdell/zod-to-json-schema",
+    "publisher": "Stefan Terdell",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/zod-to-json-schema",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/zod-to-json-schema/LICENSE"
+  },
+  "zod@4.6.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/colinhacks/zod",
+    "publisher": "Colin McDonnell",
+    "email": "zod@colinhacks.com",
+    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/zod",
+    "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/zod/LICENSE"
+  }
+}
+

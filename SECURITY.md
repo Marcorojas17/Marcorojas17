@@ -1,11 +1,8 @@
 # Security Policy
 
-## Supported Versions
-| Version | Supported          |
-| ------- | ------------------ |
-| 0.1.x   | :white_check_mark: |
+## Estado
+SYCRO VALDOVINOS se encuentra en fase **alpha** (v0.1.0).
 
-## Reporting a Vulnerability
-Please do not open a public issue for security vulnerabilities. 
-Instead, please email: security@sycrovaldovinos.dev (placeholder).
-We will acknowledge your report within 48 hours and provide a timeline for a fix.
+## Reportes
+No publiques vulnerabilidades en Issues. Contacta al responsable del repositorio mediante un canal privado.
+No incluyas secretos, claves privadas ni documentos reales en el reporte.
