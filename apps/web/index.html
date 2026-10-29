@@ -9,29 +9,44 @@
         :root { --bg-color: #050505; --glass-bg: rgba(13, 17, 23, 0.6); --glass-border: rgba(255, 255, 255, 0.08); --accent-cyan: #22d3ee; --accent-purple: #a855f7; --text-main: #E6EDF3; --text-muted: #8B949E; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Space Grotesk', sans-serif; display: flex; height: 100vh; overflow: hidden; position: relative; }
+        
+        /* Fondo Animado */
         .bg-orb { position: absolute; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.4; animation: float 10s infinite ease-in-out alternate; }
         .orb-1 { width: 400px; height: 400px; background: var(--accent-cyan); top: -10%; left: -10%; }
         .orb-2 { width: 300px; height: 300px; background: var(--accent-purple); bottom: -10%; right: -10%; animation-delay: -5s; }
         .orb-3 { width: 200px; height: 200px; background: #00ffaa; top: 40%; left: 40%; opacity: 0.15; animation-delay: -2s; }
         @keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(50px, 50px) scale(1.1); } }
+        
+        /* Sidebar */
         .sidebar { width: 260px; background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-right: 1px solid var(--glass-border); padding: 30px 20px; display: flex; flex-direction: column; z-index: 10; }
         .logo { font-family: 'JetBrains Mono', monospace; color: var(--accent-cyan); font-size: 24px; font-weight: 700; margin-bottom: 40px; letter-spacing: 2px; text-shadow: 0 0 10px rgba(34, 211, 238, 0.5); }
         .nav-item { padding: 12px 15px; color: var(--text-muted); cursor: pointer; border-radius: 8px; margin-bottom: 8px; font-weight: 600; transition: all 0.3s ease; }
         .nav-item:hover { background: rgba(255, 255, 255, 0.05); color: var(--text-main); }
         .nav-item.active { background: linear-gradient(90deg, rgba(34, 211, 238, 0.15) 0%, transparent 100%); color: var(--accent-cyan); border-left: 3px solid var(--accent-cyan); }
+        
+        /* Main */
         .main { flex: 1; padding: 40px; overflow-y: auto; z-index: 10; }
         h2 { font-weight: 300; font-size: 32px; margin-bottom: 30px; letter-spacing: -0.5px; }
         h2 span { font-weight: 600; color: var(--accent-cyan); }
+        
+        /* Card */
         .card { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: 30px; border-radius: 16px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); max-width: 600px; }
         .card p.desc { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; font-family: 'JetBrains Mono', monospace; }
         input { width: 100%; padding: 15px; background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 8px; margin-bottom: 20px; font-family: 'JetBrains Mono', monospace; font-size: 14px; transition: border 0.3s ease; }
         input:focus { outline: none; border-color: var(--accent-cyan); box-shadow: 0 0 10px rgba(34, 211, 238, 0.2); }
         button { padding: 15px 30px; background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%); color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; width: 100%; }
         button:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(168, 85, 247, 0.4); }
+        
+        /* Results */
         .result-box { background: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 8px; border: 1px solid rgba(34, 211, 238, 0.3); margin-top: 25px; display: none; font-family: 'JetBrains Mono', monospace; }
         .label { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
         .value { color: var(--accent-cyan); word-break: break-all; margin-bottom: 15px; font-size: 13px; }
         .value.sig { color: var(--accent-purple); font-size: 11px; }
+        .section { display: none; animation: fadeIn 0.4s ease; }
+        .section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Responsive */
         @media (max-width: 768px) {
             body { flex-direction: column; }
             .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--glass-border); padding: 15px; flex-direction: row; overflow-x: auto; align-items: center; }
@@ -50,40 +65,46 @@
 
     <div class="sidebar">
         <div class="logo">SYCRO</div>
-        <div class="nav-item active">LIVE</div>
-        <div class="nav-item">HISTORY</div>
-        <div class="nav-item">NODES</div>
-        <div class="nav-item">ANALYSIS</div>
+        <div class="nav-item active" onclick="showSection('live', this)">LIVE</div>
+        <div class="nav-item" onclick="showSection('history', this)">HISTORY</div>
+        <div class="nav-item" onclick="showSection('nodes', this)">NODES</div>
+        <div class="nav-item" onclick="showSection('analysis', this)">ANALYSIS</div>
     </div>
 
     <div class="main">
-        <div class="section active">
+        <div id="live" class="section active">
             <h2>Live <span>Attestation</span></h2>
             <div class="card">
                 <p class="desc">Secure flow: Login → Document → SHA-256 → MCP Sign.</p>
-                
                 <input type="text" id="username" value="valdovinos" placeholder="Username">
                 <input type="password" id="password" value="Valdovinos-Secure-Password-2026" placeholder="Password">
                 <input type="text" id="document" value="Contrato Legal NOM-151 - Valdovinos" placeholder="Document text...">
-                
                 <button id="sign-btn" onclick="signMessage()">Sign Document</button>
                 
                 <div id="results" class="result-box">
                     <div class="label">Document Hash (SHA-256):</div>
                     <div id="res-hash" class="value">-</div>
-                    
                     <div class="label">Timestamp:</div>
                     <div id="res-time" class="value">-</div>
-                    
                     <div class="label">Signature (ML-DSA-87):</div>
                     <div id="res-sig" class="value sig">-</div>
                 </div>
             </div>
         </div>
+        
+        <div id="history" class="section"><h2>His<span>tory</span></h2><div class="card"><p class="desc">No attestations yet. Sign a document in LIVE.</p></div></div>
+        <div id="nodes" class="section"><h2>Net<span>work</span> Nodes</h2><div class="card"><p class="desc">Connected to: <strong>SYCRO Local Node</strong><br><br>Status: <span style="color: var(--accent-cyan);">● Active</span></p></div></div>
+        <div id="analysis" class="section"><h2>AI <span>Analysis</span></h2><div class="card"><p class="desc">Risk analysis is handled by the local AI agent (ai-attest.mjs).</p></div></div>
     </div>
 
     <script>
-        // HARDCODEAMOS LA URL PARA EVITAR PROBLEMAS CON VERCEL ENV
+        function showSection(id, el) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            el.classList.add('active');
+        }
+
         const API_URL = "https://sycro-api.onrender.com";
 
         async function signMessage() {
