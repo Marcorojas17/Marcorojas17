@@ -6,18 +6,26 @@ import { bytesToHex } from '@noble/hashes/utils';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import crypto from 'crypto';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const keyFile = path.resolve(__dirname, '../keys.json');
 
-if (!fs.existsSync(keyFile)) {
-  console.error("❌ Error: No se encontró keys.json.");
-  process.exit(1);
-}
+let publicKey, secretKey;
 
-const data = JSON.parse(fs.readFileSync(keyFile, 'utf8'));
-const publicKey = Buffer.from(data.publicKey, 'hex');
-const secretKey = Buffer.from(data.secretKey, 'hex');
+// Si el archivo de llaves no existe (ej. en Render), lo generamos
+if (fs.existsSync(keyFile)) {
+  const data = JSON.parse(fs.readFileSync(keyFile, 'utf8'));
+  publicKey = Buffer.from(data.publicKey, 'hex');
+  secretKey = Buffer.from(data.secretKey, 'hex');
+} else {
+  console.log("🔑 Generando nueva identidad post-cuántica para Render...");
+  const seed = crypto.getRandomValues(new Uint8Array(32));
+  const keypair = ml_dsa87.keygen(seed);
+  publicKey = Buffer.from(keypair.publicKey);
+  secretKey = Buffer.from(keypair.secretKey);
+  fs.writeFileSync(keyFile, JSON.stringify({ publicKey: bytesToHex(publicKey), secretKey: bytesToHex(secretKey) }), 'utf8');
+}
 
 const server = new Server(
   { name: "sycro-pq-signature", version: "0.1.0" },
