@@ -17,6 +17,7 @@ TOLUCA-GLOBAL | KRONOS PROTOCOL | POST-QUANTUM
 <a href="https://git.io/typing-svg">
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=22D3EE&center=true&vCenter=true&width=700&lines=Senior+Software+Engineer;Architect+of+Kronos+Protocol;Post-Quantum+%2B+AI+Agents+%2B+Crypto;51%25+Human+%2F+49%25+AI" alt="Typing" />
 <br/><img src="kronos-badge.svg" width="280" /> <img src="kronos-badge-dark.svg" width="420" />
+<br/><img src="kronos-badge.svg" width="280" /> <img src="kronos-badge-dark.svg" width="420" />
 </a>
 
 <br/>
