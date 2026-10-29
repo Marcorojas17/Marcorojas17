@@ -1,4 +1,4 @@
-# KRONOS-28-ITZA — Enterprise Architecture Blueprint
+# VEXALYX — Enterprise Architecture Blueprint
 
 > Consolidated technical report documenting the monorepo architecture, supply chain, licensing, and production delivery pipeline. 
 > *Validated against the real repository before claiming compliance.*
@@ -48,4 +48,4 @@ The root acts as the coordination source. Each app keeps its local config, and s
 KRONOS is ready when the real repo passes CI, the image is identified by digest, keys are out of code, dependencies have an inventory, licenses are reviewed, backups are restored, and a tested rollback exists.
 
 ---
-*KRONOS-28-ITZA PLATINUM | Marco Antonio Rojas Valdovinos*
+*VEXALYX PLATINUM | Marco Antonio Rojas Valdovinos*

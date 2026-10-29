@@ -10,7 +10,7 @@ const { publicKey, secretKey } = ml_dsa87.keygen();
 console.log(`Public key: ${publicKey.length} bytes — 2592 esperado`);
 console.log(`Private key: ${secretKey.length} bytes — 4896 esperado`);
 
-const message = "Kronos Protocol — Toluca Global";
+const message = "Vexalyx Protocol — Toluca Global";
 const msgBytes = new TextEncoder().encode(message);
 
 const signature = ml_dsa87.sign(secretKey, msgBytes);

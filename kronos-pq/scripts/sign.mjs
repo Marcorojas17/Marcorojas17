@@ -1,7 +1,7 @@
 import { ml_dsa87 } from '@noble/post-quantum/ml-dsa';
 import fs from 'fs';
 
-const message = process.argv[2] || "ARKHÉ ZERO — Kronos Protocol";
+const message = process.argv[2] || "ARKHÉ ZERO — Vexalyx Protocol";
 const msgBytes = new TextEncoder().encode(message);
 
 let secretKey, publicKey;
