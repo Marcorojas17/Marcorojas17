@@ -75,4 +75,3 @@ cd kronos-pq && node scripts/mcp-bridge.mjs
 
 · Código: Propietario (Todos los derechos reservados).
 · Autor: Marco Antonio Rojas Valdovinos.
-  EOF
