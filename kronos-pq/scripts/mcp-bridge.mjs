@@ -65,7 +65,13 @@ app.post('/api/auth', async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) return res.status(400).json({ error: "Credenciales requeridas" });
   
-  if (username !== ADMIN_USER || !bcrypt.compareSync(password, ADMIN_HASH)) {
+  
+  console.log('--- DEBUG AUTH ---');
+  console.log('Recibido:', username, password);
+  console.log('Esperado:', ADMIN_USER, ADMIN_PASS);
+  console.log('Hash válido?', bcrypt.compareSync(password, ADMIN_HASH));
+
+if (username !== ADMIN_USER || !bcrypt.compareSync(password, ADMIN_HASH)) {
     return res.status(401).json({ error: "Credenciales inválidas" });
   }
 
