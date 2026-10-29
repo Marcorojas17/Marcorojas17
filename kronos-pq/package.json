@@ -1,0 +1,14 @@
+{
+  "name": "kronos-pq-signature",
+  "version": "0.1.0",
+  "description": "KRONOS Protocol - ML-DSA-87 post-quantum signatures",
+  "type": "module",
+  "scripts": {
+    "demo": "node examples/demo.mjs",
+    "sign": "node scripts/sign.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
+  "dependencies": {
+    "@noble/post-quantum": "^0.7.1"
+  }
+}
