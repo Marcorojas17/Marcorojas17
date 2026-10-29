@@ -8,23 +8,32 @@ import crypto from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const app = express();
-const PORT = process.env.PORT || 4000;
 
-// SEGURIDAD: Validar que el secreto exista en producción
-const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-do-not-use-in-prod-32-chars-min';
-if (JWT_SECRET.length < 32) {
-  console.error("❌ FATAL: JWT_SECRET debe tener al menos 32 caracteres.");
+// VALIDACIÓN ESTRICTA: Fallar si faltan secretos
+const { JWT_SECRET, ADMIN_USER, ADMIN_PASS, PORT = 4000 } = process.env;
+
+if (!JWT_SECRET || JWT_SECRET.length < 32) {
+  console.error("❌ FATAL: JWT_SECRET debe existir y tener al menos 32 caracteres.");
+  process.exit(1);
+}
+if (!ADMIN_USER || !ADMIN_PASS) {
+  console.error("❌ FATAL: ADMIN_USER y ADMIN_PASS son obligatorios.");
   process.exit(1);
 }
 
+// Hash de la contraseña en memoria al arrancar (en producción, viene de la DB)
+const ADMIN_HASH = bcrypt.hashSync(ADMIN_PASS, 10);
+
+const app = express();
 app.use(cors({ origin: ['http://localhost:4000', 'http://127.0.0.1:4000'] }));
 app.use(express.json());
 app.use(rateLimit({ windowMs: 1 * 60 * 1000, max: 20 }));
 app.use(express.static(path.resolve(__dirname, '../../apps/web/dist')));
 
+// MCP
 const mcpProcess = spawn('node', [path.resolve(__dirname, 'mcp-server.mjs')]);
 const rl = readline.createInterface({ input: mcpProcess.stdout, terminal: false });
 const pendingRequests = new Map();
@@ -51,15 +60,12 @@ mcpProcess.stdin.write(JSON.stringify({
   params: { protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "sycro-web" } } 
 }) + "\n");
 
-// POST /api/auth con validación de credenciales
-app.post('/api/auth', (req, res) => {
+// AUTH con bcrypt
+app.post('/api/auth', async (req, res) => {
   const { username, password } = req.body;
+  if (!username || !password) return res.status(400).json({ error: "Credenciales requeridas" });
   
-  // En producción, valida contra tu DB (bcrypt). Aquí usamos ENV para el MVP.
-  const validUser = process.env.ADMIN_USER || 'valdovinos';
-  const validPass = process.env.ADMIN_PASS || 'sycro-admin-2026';
-
-  if (username !== validUser || password !== validPass) {
+  if (username !== ADMIN_USER || !bcrypt.compareSync(password, ADMIN_HASH)) {
     return res.status(401).json({ error: "Credenciales inválidas" });
   }
 
@@ -70,10 +76,8 @@ app.post('/api/auth', (req, res) => {
 const requireAuth = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith('Bearer ')) return res.status(401).json({ error: "No token provided" });
-  
-  const token = authHeader.split(' ')[1];
   try {
-    req.user = jwt.verify(token, JWT_SECRET);
+    req.user = jwt.verify(authHeader.split(' ')[1], JWT_SECRET);
     next();
   } catch (err) {
     res.status(403).json({ error: "Invalid or expired token" });
@@ -106,11 +110,7 @@ app.post('/api/sign', requireAuth, (req, res) => {
 
   promise.then(result => {
     const parsedData = JSON.parse(result.content[0].text);
-    res.json({
-      success: true, documentHash, timestamp,
-      publicKey: parsedData.publicKey.substring(0, 16) + "...",
-      signature: parsedData.signature, signatureLength: parsedData.length
-    });
+    res.json({ success: true, documentHash, timestamp, publicKey: parsedData.publicKey.substring(0, 16) + "...", signature: parsedData.signature, signatureLength: parsedData.length });
   }).catch(err => res.status(500).json({ error: err.message }));
 });
 

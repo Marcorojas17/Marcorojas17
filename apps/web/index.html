@@ -192,17 +192,17 @@
         <div id="live" class="section active">
             <h2>Live <span>Attestation</span></h2>
             <div class="card">
-                <p class="desc">Secure flow: Document → SHA-256 Hash → MCP Sign.</p>
-                <input type="text" id="document" value="Contrato Legal NOM-151 - Valdovinos" placeholder="Enter document text...">
+                <p class="desc">Secure flow: Login → Document → SHA-256 → MCP Sign.</p>
+                <input type="text" id="username" placeholder="Username" style="margin-bottom:10px;">
+                <input type="password" id="password" placeholder="Password" style="margin-bottom:20px;">
+                <input type="text" id="document" value="Contrato Legal NOM-151 - Valdovinos" placeholder="Document text...">
                 <button onclick="signMessage()">Sign Document</button>
                 
                 <div id="results" class="result-box">
                     <div class="label">Document Hash (SHA-256):</div>
                     <div id="res-hash" class="value">-</div>
-                    
                     <div class="label">Timestamp:</div>
                     <div id="res-time" class="value">-</div>
-                    
                     <div class="label">Signature (ML-DSA-87):</div>
                     <div id="res-sig" class="value sig">-</div>
                 </div>
@@ -225,30 +225,26 @@
                 
         
         async function signMessage() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
             const doc = document.getElementById('document').value;
             const btn = document.querySelector('button');
             btn.textContent = "Authenticating...";
             document.getElementById('results').style.display = 'none';
 
             try {
-                // 1. Autenticación Real
                 const authRes = await fetch('/api/auth', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username: 'valdovinos', password: 'sycro-admin-2026' }) // En prod, pedir en un form
+                    body: JSON.stringify({ username, password })
                 });
-                if (!authRes.ok) throw new Error("Auth failed");
+                if (!authRes.ok) throw new Error("Credenciales inválidas");
                 const authData = await authRes.json();
                 
                 btn.textContent = "Signing...";
-
-                // 2. Firma
                 const response = await fetch('/api/sign', {
                     method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${authData.token}`
-                    },
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authData.token}` },
                     body: JSON.stringify({ document: doc })
                 });
                 const data = await response.json();
