@@ -7,3 +7,8 @@ apps/api/*.log
 *.log
 *.log
 apps/web/dist/
+.env
+*.env
+server.log
+*.log
+keys.json

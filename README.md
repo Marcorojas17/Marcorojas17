@@ -38,4 +38,3 @@ Hash Chain de auditoría ⏳ En diseño
 
 · Código principal: Propietario (Todos los derechos reservados).
 · Dependencias de terceros: Licencias MIT/Apache según sus respectivos package.json.
-  EOF
