@@ -30,12 +30,6 @@ if (!ADMIN_USER || !ADMIN_PASS) {
 }
 
 // Hash de la contraseña en memoria al arrancar (en producción, viene de la DB)
-
-  console.log('--- DEBUG AUTH (SAFE) ---');
-  console.log('Longitud de USER en Render:', ADMIN_USER.length);
-  console.log('Longitud de PASS en Render:', ADMIN_PASS.length);
-  console.log('Usuario recibido es igual?:', username === ADMIN_USER);
-  
 const ADMIN_HASH = bcrypt.hashSync(ADMIN_PASS, 10);
 
 const app = express();
