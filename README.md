@@ -11,20 +11,20 @@
 ██║ ██╗██║ ██║╚██████╔╝██║ ╚████║╚██████╔╝███████║
 ╚═╝ ╚═╝╚═╝ ╚═╝ ╚═════╝ ╚═╝ ╚═══╝ ╚═════╝ ╚══════╝
 
-TOLUCA-GLOBAL | KRONOS PROTOCOL | POST-QUANTUM
+TOLUCA-GLOBAL | SYCRO PROTOCOL | POST-QUANTUM
 </pre>
 
 <a href="https://git.io/typing-svg">
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=22D3EE&center=true&vCenter=true&width=700&lines=Senior+Software+Engineer;Architect+of+Kronos+Protocol;Post-Quantum+%2B+AI+Agents+%2B+Crypto;51%25+Human+%2F+49%25+AI" alt="Typing" />
-<br/><img src="kronos-badge.svg" width="280" /> <img src="kronos-badge-dark.svg" width="420" />
-<br/><img src="kronos-badge.svg" width="280" /> <img src="kronos-badge-dark.svg" width="420" />
-<br/><img src="kronos-badge.svg" width="280" /> <img src="kronos-badge-dark.svg" width="420" />
+<br/><img src="sycro-badge.svg" width="280" /> <img src="sycro-badge-dark.svg" width="420" />
+<br/><img src="sycro-badge.svg" width="280" /> <img src="sycro-badge-dark.svg" width="420" />
+<br/><img src="sycro-badge.svg" width="280" /> <img src="sycro-badge-dark.svg" width="420" />
 </a>
 
 <br/>
 
 <a href="https://github.com/Marcorojas17">
-<img src="https://img.shields.io/badge/PROTOCOL-KRONOS-22d3ee?style=for-the-badge&labelColor=050816" />
+<img src="https://img.shields.io/badge/PROTOCOL-SYCRO-22d3ee?style=for-the-badge&labelColor=050816" />
 <img src="https://img.shields.io/badge/POST_QUANTUM-ML--DSA--87-a855f7?style=for-the-badge&labelColor=050816" />
 <img src="https://img.shields.io/badge/CONSENSUS-VALDOVINOS-22d3ee?style=for-the-badge&labelColor=050816" />
 </a>
@@ -48,7 +48,7 @@ Offline-first. Zero-trust. NIST FIPS 204. NOM-151 compliant.
 
 </div>
 
-🧬 System Architecture — KRONOS
+🧬 System Architecture — SYCRO
 
 Human signs. Agent co-creates. Ledger attests.
 
@@ -123,7 +123,7 @@ const ok = await verifyMessage("Vexalyx Protocol — Toluca Global", sig, public
 
 <div align="center">
 
-KRONOS PROTOCOL — v0.1.0-alpha
+SYCRO PROTOCOL — v0.1.0-alpha
 
 "No reparamos las grietas. Las llenamos de oro." — Kintsugi
 
@@ -133,9 +133,9 @@ Agensi • GitHub • X
 
 </div>
 
-> **KRONOS ATTESTATION — ML-DSA-87 (FIPS 204 Level 5)**
+> **SYCRO ATTESTATION — ML-DSA-87 (FIPS 204 Level 5)**
 > - Date: 2026-10-28
 > - Message: `Vexalyx Protocol — Toluca Global — 2026-10-28`
 > - Pub: 2592B | Sig: 4627B | Valid: ✅ NIST FIPS 204
-> - Verify: `cd kronos-pq && node scripts/verify.mjs`
+> - Verify: `cd sycro-pq && node scripts/verify.mjs`
 

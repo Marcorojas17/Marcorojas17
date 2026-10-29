@@ -32,7 +32,7 @@ The root acts as the coordination source. Each app keeps its local config, and s
 - **Production**: Gradual rollout, healthchecks, centralized logs, rollback tested.
 
 ## 4. Licensing & Compliance
-- **Project Code**: Proprietary KRONOS (requires LICENSE file).
+- **Project Code**: Proprietary SYCRO (requires LICENSE file).
 - **Dependencies**: MIT/BSD/ISC (retain notices), Apache-2.0 (retain NOTICE, review patents).
 - **SBOM**: Produce SPDX and CycloneDX per build, stored with the image digest.
 - **Secret Management**: Never use real values in `.env.example`. Revoke and rotate immediately if exposed.
@@ -45,7 +45,7 @@ The root acts as the coordination source. Each app keeps its local config, and s
 - **Observability**: Logs without credentials, metrics, traces, alerts.
 
 ## 6. Exit Criteria (Ready for Production)
-KRONOS is ready when the real repo passes CI, the image is identified by digest, keys are out of code, dependencies have an inventory, licenses are reviewed, backups are restored, and a tested rollback exists.
+SYCRO is ready when the real repo passes CI, the image is identified by digest, keys are out of code, dependencies have an inventory, licenses are reviewed, backups are restored, and a tested rollback exists.
 
 ---
 *VEXALYX PLATINUM | Marco Antonio Rojas Valdovinos*
