@@ -114,4 +114,9 @@ app.post('/api/sign', requireAuth, (req, res) => {
   }).catch(err => res.status(500).json({ error: err.message }));
 });
 
+
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', service: 'SYCRO MCP Bridge', timestamp: new Date().toISOString() });
+});
+
 app.listen(PORT, () => console.log(`🛡️ SYCRO Secure Bridge en http://localhost:${PORT}`));
