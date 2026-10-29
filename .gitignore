@@ -6,3 +6,4 @@ package-lock.json
 apps/api/*.log
 *.log
 *.log
+apps/web/dist/
