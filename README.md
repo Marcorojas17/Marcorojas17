@@ -1,5 +1,8 @@
 <div align="center">
 
+<img src="assets/hero-sycro.jpg" width="100%" alt="SYCRO VALDOVINOS — Post-Quantum Trust Layer" />
+
+
 ```bash
 ```
 
@@ -107,6 +110,9 @@ const ok = await verifyMessage("Vexalyx Protocol — Toluca Global", sig, public
 📊 Pulse
 
 <div align="center">
+
+<img src="assets/hero-sycro.jpg" width="100%" alt="SYCRO VALDOVINOS — Post-Quantum Trust Layer" />
+
 <img src="https://github-readme-stats.vercel.app/api?username=Marcorojas17&show_icons=true&theme=radical&hide_border=true&bg_color=050816&title_color=22d3ee&icon_color=a855f7&text_color=94a3b8&border_radius=12" width="48%" />
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Marcorojas17&layout=compact&theme=radical&hide_border=true&bg_color=050816&title_color=22d3ee&text_color=94a3b8&border_radius=12" width="48%" />
 <br/><br/>
@@ -122,6 +128,9 @@ const ok = await verifyMessage("Vexalyx Protocol — Toluca Global", sig, public
 <!-- WAKATIME END -->
 
 <div align="center">
+
+<img src="assets/hero-sycro.jpg" width="100%" alt="SYCRO VALDOVINOS — Post-Quantum Trust Layer" />
+
 
 SYCRO PROTOCOL — v0.1.0-alpha
 
