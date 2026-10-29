@@ -3,3 +3,4 @@ keys.json
 signature.json
 .env
 package-lock.json
+apps/api/*.log

@@ -1,3 +1,6 @@
 packages:
   - 'apps/*'
   - 'packages/*'
+  - 'kronos-pq'
+  - 'core-dsp'
+  - 'design-system'

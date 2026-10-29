@@ -19,7 +19,7 @@
         <p id="api-status">Checking...</p>
     </div>
     <script>
-        fetch('http://127.0.0.1:3000/health')
+        fetch('/api/health')
             .then(res => res.json())
             .then(data => {
                 document.getElementById('api-status').innerHTML = `<span class="status">● ${data.status.toUpperCase()}</span> | ${data.service}`;

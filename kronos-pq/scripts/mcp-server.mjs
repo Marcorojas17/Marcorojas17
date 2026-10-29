@@ -3,17 +3,22 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { ml_dsa87 } from '@noble/post-quantum/ml-dsa';
 import { bytesToHex } from '@noble/hashes/utils';
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Cargar identidad persistente
+// Resolver ruta absoluta sin importar desde dónde se ejecute
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const keyFile = path.resolve(__dirname, '../keys.json');
+
 let publicKey, secretKey;
-const keyFile = 'keys.json';
 
 if (fs.existsSync(keyFile)) {
   const data = JSON.parse(fs.readFileSync(keyFile, 'utf8'));
   publicKey = Buffer.from(data.publicKey, 'hex');
   secretKey = Buffer.from(data.secretKey, 'hex');
 } else {
-  console.error("❌ Error: No se encontró keys.json. Ejecuta ai-attest.mjs primero.");
+  console.error(`❌ Error: No se encontró keys.json en ${keyFile}. Ejecuta ai-attest.mjs primero.`);
   process.exit(1);
 }
 
@@ -39,7 +44,6 @@ server.setRequestHandler("tools/list", async () => ({
 server.setRequestHandler("tools/call", async (request) => {
   if (request.params.name === "sycro_sign_document") {
     const msg = request.params.arguments.message;
-    // Usa la llave persistente
     const signature = ml_dsa87.sign(secretKey, new TextEncoder().encode(msg));
     
     return {
