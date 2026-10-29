@@ -2,6 +2,20 @@ import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { ml_dsa87 } from '@noble/post-quantum/ml-dsa';
 import { bytesToHex } from '@noble/hashes/utils';
+import fs from 'fs';
+
+// Cargar identidad persistente
+let publicKey, secretKey;
+const keyFile = 'keys.json';
+
+if (fs.existsSync(keyFile)) {
+  const data = JSON.parse(fs.readFileSync(keyFile, 'utf8'));
+  publicKey = Buffer.from(data.publicKey, 'hex');
+  secretKey = Buffer.from(data.secretKey, 'hex');
+} else {
+  console.error("❌ Error: No se encontró keys.json. Ejecuta ai-attest.mjs primero.");
+  process.exit(1);
+}
 
 const server = new Server({
   name: "sycro-pq-signature",
@@ -10,26 +24,22 @@ const server = new Server({
   capabilities: { tools: {} }
 });
 
-// Registramos la herramienta para que el Agente (Claude/Cursor) la vea
 server.setRequestHandler("tools/list", async () => ({
   tools: [{
     name: "sycro_sign_document",
     description: "Signs a document hash using Post-Quantum ML-DSA-87 via SYCRO VALDOVINOS.",
     inputSchema: {
       type: "object",
-      properties: {
-        message: { type: "string", description: "The message or hash to sign" }
-      },
+      properties: { message: { type: "string", description: "The message to sign" } },
       required: ["message"]
     }
   }]
 }));
 
-// Ejecución de la herramienta
 server.setRequestHandler("tools/call", async (request) => {
   if (request.params.name === "sycro_sign_document") {
     const msg = request.params.arguments.message;
-    const { publicKey, secretKey } = ml_dsa87.keygen();
+    // Usa la llave persistente
     const signature = ml_dsa87.sign(secretKey, new TextEncoder().encode(msg));
     
     return {
