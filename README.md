@@ -1,154 +1,207 @@
-<div align="center">
-
-<img src="assets/hero-sycro.jpg" width="100%" alt="SYCRO VALDOVINOS — Post-Quantum Trust Layer" />
-
-
-```bash
+```text
+╔══════════════════════════════════════════════════════════════════════════╗
+║                                                                          ║
+║   ███████╗██╗   ██╗██╗██████╗ ███████╗███╗   ██╗ ██████╗███████╗         ║
+║   ██╔════╝██║   ██║██║██╔══██╗██╔════╝████╗  ██║██╔════╝██╔════╝         ║
+║   █████╗  ██║   ██║██║██║  ██║█████╗  ██╔██╗ ██║██║     █████╗           ║
+║   ██╔══╝  ╚██╗ ██╔╝██║██║  ██║██╔══╝  ██║╚██╗██║██║     ██╔══╝           ║
+║   ███████╗ ╚████╔╝ ██║██████╔╝███████╗██║ ╚████║╚██████╗███████╗         ║
+║   ╚══════╝  ╚═══╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚══════╝         ║
+║                                                                          ║
+║   V A L D O V I N O S   ::   v0.1.0-alpha                                ║
+║   cadena de custodia digital + criptografía post-cuántica                ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
 ```
 
-<pre align="center">
-██╗ ██╗██████╗ ██████╗ ███╗ ██╗ ██████╗ ███████╗
-██║ ██╔╝██╔══██╗██╔═══██╗████╗ ██║██╔═══██╗██╔════╝
-█████╔╝ ██████╔╝██║ ██║██╔██╗ ██║██║ ██║███████╗
-██╔═██╗ ██╔══██╗██║ ██║██║╚██╗██║██║ ██║╚════██║
-██║ ██╗██║ ██║╚██████╔╝██║ ╚████║╚██████╔╝███████║
-╚═╝ ╚═╝╚═╝ ╚═╝ ╚═════╝ ╚═╝ ╚═══╝ ╚═════╝ ╚══════╝
+Plataforma de integridad, trazabilidad y verificación de evidencia digital para México y Latinoamérica, impulsada por IA y Criptografía Post-Cuántica (ML-DSA-87).
 
-TOLUCA-GLOBAL | SYCRO PROTOCOL | POST-QUANTUM
-</pre>
-
-<a href="https://git.io/typing-svg">
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=22D3EE&center=true&vCenter=true&width=700&lines=Senior+Software+Engineer;Architect+of+Kronos+Protocol;Post-Quantum+%2B+AI+Agents+%2B+Crypto;51%25+Human+%2F+49%25+AI" alt="Typing" />
-<br/><img src="sycro-badge.svg" width="280" /> <img src="sycro-badge-dark.svg" width="420" />
-<br/><img src="sycro-badge.svg" width="280" /> <img src="sycro-badge-dark.svg" width="420" />
-<br/><img src="sycro-badge.svg" width="280" /> <img src="sycro-badge-dark.svg" width="420" />
-</a>
-
-<br/>
-
-<a href="https://github.com/Marcorojas17">
-<img src="https://img.shields.io/badge/PROTOCOL-SYCRO-22d3ee?style=for-the-badge&labelColor=050816" />
-<img src="https://img.shields.io/badge/POST_QUANTUM-ML--DSA--87-a855f7?style=for-the-badge&labelColor=050816" />
-<img src="https://img.shields.io/badge/CONSENSUS-VALDOVINOS-22d3ee?style=for-the-badge&labelColor=050816" />
-</a>
-
-
-
-
-
-<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
-<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
-<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white" />
-<img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" />
-<img src="https://img.shields.io/badge/Solidity-363636?style=for-the-badge&logo=solidity&logoColor=white" />
-
-<br/>
-
-Senior Engineer building post-quantum infrastructure for AI agents.
-
-Offline-first. Zero-trust. Compatible con ML-DSA-87 (FIPS 204). NOM-151 compliant.
-
-</div>
-
-🧬 System Architecture — SYCRO
-
-Human signs. Agent co-creates. Ledger attests.
-
-```mermaid
-graph TD
-    H[👤 Human Creator — Marco Rojas] -->|Signs with ML-DSA-87<br/>Compatible con ML-DSA-87 (FIPS 204)| A[🤖 Agent IA — ARKHÉ ZERO]
-    A -->|Co-creates Content<br/>Code + Docs + Proofs| L{🧾 Post-Quantum Ledger}
-    L -->|NOM-151 SCFI<br/>Conservación 10 años| I[(📦 IPFS / Filecoin)]
-    L -->|51/49 Governance<br/>Valdovinos Consensus| S[📜 Smart Contracts — Kintsugi]
-    L -->|Attestation<br/>pq-signature| V[✅ Verify: 2ms]
-    
-    classDef core fill:#050816,stroke:#22d3ee,stroke-width:2.5px,color:#e2e8f0;
-    classDef ledger fill:#050816,stroke:#a855f7,stroke-width:2.5px,color:#e2e8f0;
-    classDef store fill:#0a0f1f,stroke:#22d3ee,stroke-width:1.5px,color:#94a3b8;
-    
-    class H,A core;
-    class L ledger;
-    class I,S,V store;
+```text
+[ HASH ]  SHA-256 + HMAC          [ TIME ]  RFC 3161
+[ PROOF ] .evidence               [ AUDIT ] Hash Chain
+[ FORM  ] JCS RFC 8785            [ SIGN  ] ML-DSA-87 (NIST FIPS 204)
+[ PADES ] ETSI EN 319 142-1       [ AGENT ] MCP (Model Context Protocol)
+[ KMS   ] Local + AWS             [ ANCHR ] Local + S3 Object Lock
 ```
 
-Flow: Human (ML-DSA-87 Private Key 4896B) → Agent → Signature (4627B) → Public Key (2592B) → Verify → IPFS + Ledger
+https://img.shields.io/badge/estado-pre--alpha-ffcc00?style=for-the-badge&labelColor=0a0d10
+https://img.shields.io/badge/n%C3%BAcleo%20criptogr%C3%A1fico-100%25-00ff41?style=for-the-badge&labelColor=0a0d10
+https://img.shields.io/badge/api-fastify-00ffff?style=for-the-badge&labelColor=0a0d10
+https://img.shields.io/badge/ui-vite-ff00ff?style=for-the-badge&labelColor=0a0d10
+https://img.shields.io/badge/tests-unit%20%2B%20security-8b5cf6?style=for-the-badge&labelColor=0a0d10
+https://img.shields.io/badge/licencia-MIT%20%2B%20CC--BY--4.0-10b981?style=for-the-badge&labelColor=0a0d10
 
-🎯 Agent Skills — Agensi Marketplace
-
-Skill Spec Status Link
-pq-signature ML-DSA-87 (Dilithium5) · Compatible con ML-DSA-87 (FIPS 204) · Compatible con · Sign ~4ms / Verify ~2ms · Zero network calls · @noble/post-quantum Live View on Agensi
-
-🔒 No key storage. No network. In-memory only. 2592B pub / 4896B priv / 4627B sig.
-
-Install:
-
-```bash
-npx agensi add pq-signature
-# o
-agensi skills install pq-signature
+```text
+> WARNING: SYCRO VALDOVINOS no sustituye a abogado, perito, notario
+> ni Prestador de Servicios de Certificación (PSC). Los sellos RFC 3161 y
+> las constancias NOM-151 son emitidos exclusivamente por terceros
+> autorizados.
 ```
-
-Usage:
-
-```javascript
-import { generateKeypair, signMessage, verifyMessage } from 'pq-signature'
-const { publicKey, privateKey } = await generateKeypair()
-const sig = await signMessage("Vexalyx Protocol — Toluca Global", privateKey)
-const ok = await verifyMessage("Vexalyx Protocol — Toluca Global", sig, publicKey) // true
-```
-
-🛠️ Stack — Toluca-Global Protocol
-
-· Languages: TypeScript, Python, Rust, C#, Solidity
-· Crypto: ML-DSA-87, ML-KEM-1024 (Kyber), SHA3, Ed25519
-· AI Agents: MCP, Agensi, Claude Code, Cursor, OpenAI Agents SDK
-· Infra: Node.js 22+, Docker, IPFS, Filecoin, EVM Chains
-· Compliance: NOM-151-SCFI-2016, e.firma, FIPS 204
-· Principles: Kintsugi (golden cracks) + Arkhé (origin)
-
-📊 Pulse
-
-<div align="center">
-
-<img src="assets/hero-sycro.jpg" width="100%" alt="SYCRO VALDOVINOS — Post-Quantum Trust Layer" />
-
-<img src="https://github-readme-stats.vercel.app/api?username=Marcorojas17&show_icons=true&theme=radical&hide_border=true&bg_color=050816&title_color=22d3ee&icon_color=a855f7&text_color=94a3b8&border_radius=12" width="48%" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Marcorojas17&layout=compact&theme=radical&hide_border=true&bg_color=050816&title_color=22d3ee&text_color=94a3b8&border_radius=12" width="48%" />
-<br/><br/>
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Marcorojas17&bg_color=050816&color=22d3ee&line=a855f7&point=ffffff&area=true&hide_border=true" />
-</div>
-
-<!-- WAKATIME START -->
-
-<!--START_SECTION:waka-->
-
-<!--END_SECTION:waka-->
-
-<!-- WAKATIME END -->
-
-<div align="center">
-
-<img src="assets/hero-sycro.jpg" width="100%" alt="SYCRO VALDOVINOS — Post-Quantum Trust Layer" />
-
-
-SYCRO PROTOCOL — v0.1.0-alpha
-
-"No reparamos las grietas. Las llenamos de oro." — Kintsugi
-
-Toluca, MX → Global | 51% Human / 49% AI
-
-Agensi • GitHub • X
-
-</div>
-
-> **SYCRO ATTESTATION — ML-DSA-87 (FIPS 204 Compatible con)**
-> - Date: 2026-10-28
-> - Message: `Vexalyx Protocol — Toluca Global — 2026-10-28`
-> - Pub: 2592B | Sig: 4627B | Valid: ✅ Compatible con ML-DSA-87 (FIPS 204)
-> - Verify: `cd sycro-pq && node scripts/verify.mjs`
-
 
 ---
-## ⚠️ Legal Disclaimer
-This software provides an implementation compatible with ML-DSA-87 (FIPS 204). It is **not** officially certified by NIST. Cryptographic implementations should undergo independent security audits before production use.
+
+```text
+┌─[ 01 ]───────────────────────────────────────────────────────────── MISIÓN ─┐
+│                                                                             │
+│  Preservar evidencia digital de forma verificable, trazable y               │
+│  exportable, utilizando criptografía post-cuántica para garantizar          │
+│  la integridad a largo plazo (Zero-Trust / Post-Quantum).                   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```text
+ARCHIVO ORIGINAL
+       │
+       ├──▶ content_hash       (SHA-256, verificable por terceros)
+       ├──▶ private_commitment (HMAC-SHA256 vía KMS, prueba privada)
+       ├──▶ post_quantum_sig   (ML-DSA-87, inmune a ataques cuánticos)
+       ├──▶ ai_risk_analysis   (Agente IA local, detecta anomalías)
+       ├──▶ token.rfc3161      (TSA externa, vinculado al hash)
+       ├──▶ evidence-report.pdf (PAdES-B-T: firma + sello de tiempo)
+       ├──▶ evento encadenado + anclaje externo
+       └──▶ cierre firmado del log de auditoría
+       │
+       ▼
+PAQUETE .evidence VERIFICABLE
+```
+
+---
+
+```text
+┌─[ 02 ]───────────────────────────────────────────────────────── QUÉ HACE ─┐
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+```
+
+Módulo Función
+📦 Paquete .evidence Convierte archivos en paquetes verificables e independientes.
+🔒 Integridad Calcula content_hash (SHA-256) y private_commitment (HMAC).
+🛡️ Post-Quantum Firma el paquete con ML-DSA-87 (NIST FIPS 204).
+🤖 IA Agent Servidor MCP que analiza semánticamente el documento antes de firmar.
+🕐 Tiempo Integra sellos RFC 3161 emitidos por una TSA externa.
+📄 Reporte Genera evidence-report.pdf con firma PAdES-B-T.
+⛓️ Auditoría Registra eventos en hash chain con firma por evento.
+🔌 API HTTP Expone órdenes, evidencia, webhook y verificación (Fastify).
+🖥️ UI Interfaz server-side (Glassmorphism UI) con verificación y checkout.
+
+---
+
+```text
+┌─[ 03 ]────────────────────────────────────────────────────── LÍMITES ─┐
+│                                                                        │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+✅ ESTE SISTEMA SÍ ❌ ESTE SISTEMA NO
+Vincula un hash con una fecha/hora verificable mediante token RFC 3161. No certifica autoría, titularidad ni veracidad del contenido.
+Conserva artefactos criptográficos (ML-DSA-87) para revisión independiente. No emite constancias NOM-151 (solo un PSC acreditado puede hacerlo).
+Mantiene trazabilidad operativa y eventos auditables. No garantiza la admisibilidad judicial de una prueba.
+Facilita verificación técnica reproducible por terceros. No sustituye asesoría jurídica, pericial o notarial.
+
+---
+
+```text
+┌─[ 04 ]───────────────────────────────────── CONTENIDO DEL PAQUETE ─┐
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+```text
+paquete.evidence
+├── manifest.payload.json       ← Metadatos y hashes canónicos (JCS, RFC 8785)
+├── manifest.jws.json           ← Firma JWS + Firma ML-DSA-87 (Post-Quantum)
+├── token.rfc3161               ← Sello de tiempo RFC 3161 (ASN.1 DER)
+├── evidence-report.pdf         ← Reporte técnico PAdES-B-T
+├── proofs/
+│   ├── chain_<position>.json   ← Entrada de hash chain
+│   └── anchor_<position>.json  ← Anclaje externo (S3 Object Lock)
+├── signatures/
+│   ├── signing_cert.pem        ← Certificado de firma
+│   └── pq_signature.bin        ← Firma Post-Cuántica (4627 bytes)
+├── ai_audit/
+│   └── analysis.json           ← Resultado del agente IA (Nivel de riesgo)
+└── README.txt                  ← Instrucciones de verificación
+```
+
+---
+
+```text
+┌─[ 05 ]────────────────────────────────── ARQUITECTURA DE CONFIANZA ─┐
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+```mermaid
+flowchart TD
+    A[Archivo original] --> B[content_hash SHA-256]
+    A --> C[private_commitment HMAC]
+    B --> D[AI Semantic Analysis MCP]
+    D --> E[manifest.payload.json JCS]
+    E --> F[ML-DSA-87 Signature]
+    E --> G[JWS detached RFC 7797]
+    F --> H[token.rfc3161]
+    H --> I[Paquete .evidence]
+    I --> J[Evento de auditoría]
+    J --> K[Hash chain firmada]
+    K --> L[Anclaje externo S3 Object Lock]
+    I --> M[Verificación independiente]
+```
+
+Naturaleza de las pruebas
+
+Elemento Naturaleza Verificable por
+content_hash (SHA-256) Prueba pública e interoperable Cualquiera con el archivo original
+pq_signature (ML-DSA-87) Prueba criptográfica post-cuántica Cualquiera con la clave pública
+token.rfc3161 Vinculación temporal emitida por TSA externa Cualquiera con el token
+ai_audit/analysis.json Análisis de riesgo semántico automatizado El operador del sistema
+audit.log.jsonl Log encadenado con firma por evento Cualquiera con la clave pública
+
+---
+
+```text
+┌─[ 06 ]─────────────────────────────────────── ESTADO DEL PROYECTO ─┐
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+Componente Estado
+Núcleo criptográfico (PQ) ✅ ML-DSA-87, hashing, KMS, JCS, manifest, JWS
+Servidor MCP e IA ✅ Análisis semántico y firma vía protocolo de agentes
+Log de auditoría ✅ logger encadenado + anclaje (Local+S3) + verificación
+Empaquetado .evidence ✅ builder + verifier + CLI
+API HTTP ✅ Fastify: orders, evidence, webhook, admin, JWT Auth
+UI de aplicación ✅ Glassmorphism Dashboard (Vite)
+CI/CD ✅ GitHub Actions + Dockerfile multi-stage
+Revisión legal MX ⚠️ Bloqueante externo
+
+Barra de progreso
+
+```text
+  Núcleo criptográfico  ████████████████████████████████████ 100%
+  Servidor MCP / IA     ████████████████████████████████████ 100%
+  Log de auditoría      ████████████████████████████████████ 100%
+  Empaquetado .evidence ████████████████████████████████████ 100%
+  API HTTP + JWT        ████████████████████████████████████ 100%
+  UI Dashboard (Luxury) ████████████████████████████████████ 100%
+  CI/CD y Docker        ████████████████████████████████████ 100%
+  Revisión legal MX     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   0%
+```
+
+---
+
+```text
+╔══════════════════════════════════════════════════════════════════════════╗
+║                                                                          ║
+║   [ SYCRO VALDOVINOS ]                                                   ║
+║                                                                          ║
+║   Integridad verificable.                                                ║
+║   Trazabilidad responsable.                                              ║
+║   Criptografía Post-Cuántica.                                            ║
+║                                                                          ║
+║   root@sycro:~# ./verify --integrity --post-quantum                      ║
+║   █                                                                      ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+```
+
