@@ -20,6 +20,13 @@
         .value { color: #7EE787; word-break: break-all; margin-bottom: 10px; }
         .section { display: none; }
         .section.active { display: block; }
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #30363d; padding: 15px; flex-direction: row; overflow-x: auto; align-items: center; }
+            .logo { margin-bottom: 0; margin-right: 20px; font-size: 16px; }
+            .nav-item { margin-bottom: 0; margin-right: 10px; padding: 5px 10px; white-space: nowrap; }
+            .main { padding: 20px; }
+        }
     </style>
 </head>
 <body>
