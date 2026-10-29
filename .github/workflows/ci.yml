@@ -1,31 +1,23 @@
 name: SYCRO CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 jobs:
-  build-and-test:
+  test-and-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+        with: { node-version: '20' }
       
-      - name: Install API Dependencies
-        run: cd apps/api && npm ci
+      - name: Install & Audit API
+        run: cd apps/api && npm ci && npm audit --audit-level=high
       
-      - name: Audit API
-        run: cd apps/api && npm audit --audit-level=high
+      - name: Type Check & Build API
+        run: cd apps/api && npx tsc --noEmit && npm run build
       
-      - name: Type Check API
-        run: cd apps/api && npx tsc --noEmit
-      
-      - name: Install Web Dependencies
-        run: cd apps/web && npm ci
-      
-      - name: Build Web
-        run: cd apps/web && npm run build
+      - name: Test Docker Build
+        run: docker build -t sycro-api ./apps/api
+
+      - name: Install & Build Web
+        run: cd apps/web && npm ci && npm run build

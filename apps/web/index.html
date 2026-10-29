@@ -222,18 +222,25 @@
             el.classList.add('active');
         }
 
-        async function signMessage() {
+                async function signMessage() {
             const doc = document.getElementById('document').value;
             const btn = document.querySelector('button');
-            btn.textContent = "Connecting to MCP...";
+            btn.textContent = "Authenticating...";
             document.getElementById('results').style.display = 'none';
 
             try {
+                // 1. Obtener token dinámico
+                const authRes = await fetch('/api/auth');
+                const authData = await authRes.json();
+                
+                btn.textContent = "Signing...";
+
+                // 2. Firmar con el token
                 const response = await fetch('/api/sign', {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer SYCRO_SECRET_TOKEN'
+                        'Authorization': `Bearer ${authData.token}`
                     },
                     body: JSON.stringify({ document: doc })
                 });
@@ -252,6 +259,7 @@
             }
             btn.textContent = "Sign Document";
         }
+
     </script>
 </body>
 </html>

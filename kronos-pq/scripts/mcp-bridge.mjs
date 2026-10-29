@@ -9,58 +9,75 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
+const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'http://localhost:4000';
 
-// 1. Seguridad: CORS Restringido (Ajusta en prod al dominio real)
-app.use(cors({ origin: ['http://localhost:4000', 'http://127.0.0.1:4000'] }));
+app.use(cors({ origin: [ALLOWED_ORIGIN, 'http://127.0.0.1:4000'] }));
 app.use(express.json());
-
-// 2. Seguridad: Rate Limiting (Máximo 10 peticiones por minuto por IP)
-const limiter = rateLimit({ windowMs: 1 * 60 * 1000, max: 10 });
-app.use('/api/', limiter);
-
-// 3. Servir la web resolviendo ruta absoluta
+app.use(rateLimit({ windowMs: 1 * 60 * 1000, max: 20 }));
 app.use(express.static(path.resolve(__dirname, '../../apps/web/dist')));
 
-// 4. Proceso MCP Persistente (Se inicia 1 vez, no en cada request)
+// Proceso MCP Persistente
 const mcpProcess = spawn('node', [path.resolve(__dirname, 'mcp-server.mjs')]);
 const rl = readline.createInterface({ input: mcpProcess.stdout, terminal: false });
-let pendingRequest = null;
+const pendingRequests = new Map();
+let mcpInitialized = false;
 
+// Manejo estricto del Handshake
 rl.on('line', (line) => {
   try {
     const parsed = JSON.parse(line);
-    if (parsed.id === 1 && pendingRequest) {
-      pendingRequest(parsed.result.content[0].text);
-      pendingRequest = null;
+    // 1. Esperar respuesta del Initialize
+    if (parsed.id === 'init' && !mcpInitialized) {
+      mcpInitialized = true;
+      mcpProcess.stdin.write(JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized" }) + "\n");
     }
-  } catch (e) { /* Ignorar logs */ }
+    // 2. Manejar respuestas concurrentes basadas en ID
+    if (parsed.id && pendingRequests.has(parsed.id)) {
+      const resolve = pendingRequests.get(parsed.id);
+      resolve(parsed.result);
+      pendingRequests.delete(parsed.id);
+    }
+  } catch (e) { /* Ignorar logs no JSON */ }
 });
 
-// Handshake inicial con MCP
-mcpProcess.stdin.write(JSON.stringify({ jsonrpc: "2.0", id: 0, method: "initialize", params: { protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "sycro-web" } } }) + "\n");
-mcpProcess.stdin.write(JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized" }) + "\n");
+// Iniciar Handshake
+mcpProcess.stdin.write(JSON.stringify({ 
+  jsonrpc: "2.0", id: 'init', method: "initialize", 
+  params: { protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "sycro-web" } } 
+}) + "\n");
 
-// 5. Ruta Protegida con Auth (Bearer Token)
-app.post('/api/sign', (req, res) => {
-  // Autenticación simple (En prod usar JWT/OAuth)
+// Generador de Tokens (Simula JWT)
+const activeTokens = new Set();
+app.get('/api/auth', (req, res) => {
+  const token = crypto.randomBytes(16).toString('hex');
+  activeTokens.add(token);
+  setTimeout(() => activeTokens.delete(token), 3600000); // Expira en 1 hora
+  res.json({ token });
+});
+
+// Middleware de Auth
+const requireAuth = (req, res, next) => {
   const authHeader = req.headers.authorization;
-  if (!authHeader || authHeader !== 'Bearer SYCRO_SECRET_TOKEN') {
-    return res.status(401).json({ error: "Unauthorized" });
-  }
+  if (!authHeader || !authHeader.startsWith('Bearer ')) return res.status(401).json({ error: "Unauthorized" });
+  const token = authHeader.split(' ')[1];
+  if (!activeTokens.has(token)) return res.status(403).json({ error: "Invalid or expired token" });
+  next();
+};
 
+app.post('/api/sign', requireAuth, (req, res) => {
   const { document } = req.body;
   if (!document) return res.status(400).json({ error: "Document required" });
 
-  // 6. Flujo Criptográfico Formal: Hash + Metadata
   const documentHash = crypto.createHash('sha256').update(document).digest('hex');
   const nonce = crypto.randomBytes(16).toString('hex');
   const timestamp = new Date().toISOString();
   const payload = JSON.stringify({ documentHash, nonce, timestamp });
+  const requestId = crypto.randomUUID();
 
-  // Enviar al proceso MCP persistente
-  pendingRequest = (result) => {
-    const parsedData = JSON.parse(result);
+  // Registrar la promesa en la cola de concurrencia
+  pendingRequests.set(requestId, (result) => {
+    const parsedData = JSON.parse(result.content[0].text);
     res.json({
       success: true,
       documentHash,
@@ -69,14 +86,19 @@ app.post('/api/sign', (req, res) => {
       signature: parsedData.signature,
       signatureLength: parsedData.length
     });
-  };
+  });
 
   mcpProcess.stdin.write(JSON.stringify({ 
-    jsonrpc: "2.0", id: 1, method: "tools/call", 
+    jsonrpc: "2.0", id: requestId, method: "tools/call", 
     params: { name: "sycro_sign_document", arguments: { payload } } 
   }) + "\n");
+  
+  setTimeout(() => {
+    if (pendingRequests.has(requestId)) {
+      pendingRequests.delete(requestId);
+      res.status(500).json({ error: "MCP Timeout" });
+    }
+  }, 5000);
 });
 
-app.listen(PORT, () => {
-  console.log(`🛡️ SYCRO Secure Bridge en http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`🛡️ SYCRO Secure Bridge en http://localhost:${PORT}`));
