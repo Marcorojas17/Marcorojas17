@@ -14,9 +14,9 @@ Componente Estado Evidencia
 Criptografía Post-Cuántica ✅ Firma ML-DSA-87 (NIST FIPS 204) vía @noble/post-quantum
 Servidor MCP ✅ Protocolo JSON-RPC con identidad persistente
 API HTTP (Fastify) ✅ Endpoint /health verificado, CI/Docker pasando
-Autenticación ✅ JWT (HS256) con validación de credenciales y secretos por ENV
+Autenticación ✅ JWT (HS256) con validación de credenciales (bcrypt) y secretos por ENV
 Puente Web-MCP ✅ Express con rate limiting, CORS y manejo de concurrencia
-Frontend ✅ Dashboard en Vite (Glassmorphism) consumiendo API real
+Frontend ✅ Dashboard en Vite (Glassmorphism) con login real
 CI/CD ✅ GitHub Actions (Audit, Build, Docker Smoke Test)
 
 ⚠️ Planificado (No implementado en esta fase)
@@ -32,7 +32,7 @@ Hash Chain de auditoría ⏳ En diseño
 
 · ML-DSA-87: Implementación compatible con el estándar NIST FIPS 204. No cuenta con certificación oficial de NIST ni FIPS.
 · NOM-151: El sistema está diseñado para ser compatible con flujos de conservación de mensajes de datos, pero no sustituye a un Prestador de Servicios de Certificación (PSC) acreditado.
-· JWT: El secreto se lee desde process.env.JWT_SECRET. En producción, es obligatorio configurarlo (mínimo 32 caracteres) y cambiar las credenciales por defecto (ADMIN_USER, ADMIN_PASS).
+· JWT: El secreto se lee desde .env (JWT_SECRET, ADMIN_USER, ADMIN_PASS). En producción, es obligatorio configurar estas variables.
 
 📄 Licencia
 
