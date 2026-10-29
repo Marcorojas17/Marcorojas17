@@ -485,10 +485,6 @@
     "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/jws",
     "licenseFile": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq/node_modules/jws/LICENSE"
   },
-  "kronos-pq-signature@0.1.0": {
-    "licenses": "UNKNOWN",
-    "path": "/data/data/com.termux/files/home/Marcorojas17/kronos-pq"
-  },
   "lodash.includes@4.3.0": {
     "licenses": "MIT",
     "repository": "https://github.com/lodash/lodash",
