@@ -1,26 +1,41 @@
-<h1 align="center">
-  <br>
-  <b>SYCRO VALDOVINOS</b>
-  <br>
-  <sub>Post-Quantum Trust Layer & AI Agent Infrastructure</sub>
-</h1>
+<div align="center">
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Estado-Alpha_v0.1.0-ffcc00?style=for-the-badge&labelColor=050816" />
-  <img src="https://img.shields.io/badge/Criptograf%C3%ADa-ML--DSA--87-22d3ee?style=for-the-badge&labelColor=050816" />
-  <img src="https://img.shields.io/badge/Agentes-MCP-a855f7?style=for-the-badge&labelColor=050816" />
-  <img src="https://img.shields.io/badge/Licencia-Propietaria-ef4444?style=for-the-badge&labelColor=050816" />
-</p>
+```text
+╔══════════════════════════════════════════════════════════════════════════╗
+║   SYCRO VALDOVINOS :: v0.1.0-alpha                                       ║
+║   Post-Quantum Trust Layer & AI Agent Infrastructure                     ║
+╚══════════════════════════════════════════════════════════════════════════╝
+```
+
+https://img.shields.io/badge/Estado-Alpha_v0.1.0-ffcc00?style=for-the-badge&labelColor=050816
+https://img.shields.io/badge/Criptograf%C3%ADa-ML--DSA--87-22d3ee?style=for-the-badge&labelColor=050816
+https://img.shields.io/badge/Agentes-MCP-a855f7?style=for-the-badge&labelColor=050816
+https://img.shields.io/badge/Licencia-Propietaria-ef4444?style=for-the-badge&labelColor=050816
+
+Plataforma de integridad y trazabilidad para evidencia digital. Compatible con NOM-151 y FIPS 204 (no certificado).
+
+</div>
 
 ---
 
-## 🚀 ¿Qué es SYCRO?
+📖 Acerca de SYCRO
 
-SYCRO es una infraestructura de confianza diseñada para validar la integridad y autoría de documentos digitales. Utiliza criptografía post-cuántica (ML-DSA-87) y expone sus capacidades a agentes autónomos mediante el Model Context Protocol (MCP). Diseñado para ser compatible con los flujos de conservación de mensajes de datos de la NOM-151.
+Los modelos de IA y los sistemas actuales dependen de infraestructuras criptográficas clásicas (RSA/ECDSA) que serán obsoletas frente a la computación cuántica.
 
-## 🧬 Arquitectura y Flujo
+SYCRO es un protocolo de infraestructura agéntica diseñado para validar la integridad y autoría de documentos digitales. Utiliza criptografía post-cuántica real (ML-DSA-87) y expone sus capacidades a agentes autónomos mediante el Model Context Protocol (MCP).
 
-El flujo principal garantiza que un documento no sea alterado, pasando por análisis semántico y firmas cuánticas.
+🧩 Módulos del ecosistema
+
+Módulo Descripción Estado
+Core Crypto Motor de firmas post-cuánticas ML-DSA-87 (NIST FIPS 204). ✅ Implementado
+API Bridge Servidor Express con Auth (JWT/Bcrypt), Rate Limiting y CORS. ✅ Implementado
+MCP Server Protocolo JSON-RPC para comunicación con agentes de IA. ✅ Implementado
+Web UI Dashboard de atestación con Glassmorphism y navegación. ✅ Implementado
+CI/CD GitHub Actions con Docker Smoke Test y auditoría de vulnerabilidades. ✅ Implementado
+Sellos TSA Integración con autoridades de sellado de tiempo (RFC 3161). ⏳ Planificado
+KMS / IPFS Anclaje a AWS S3 Object Lock e IPFS para persistencia. ⏳ Planificado
+
+🧬 Arquitectura y Flujo
 
 ```mermaid
 flowchart LR
@@ -33,8 +48,9 @@ flowchart LR
   classDef agent fill:#050816,stroke:#a855f7,stroke-width:2px,color:#fff;
   class A,B,E core;
   class C,D agent;
+```
 
-⚙️ Instalación y Uso (Local)
+🚀 Instalación rápida
 
 ```bash
 # 1. Clonar el repositorio
@@ -46,32 +62,22 @@ cd apps/api && npm install && cd ../..
 cd apps/web && npm install && cd ../..
 cd kronos-pq && npm install && cd ..
 
-# 3. Configurar variables de entorno
+# 3. Configurar variables de entorno (usar .env.example)
 cp kronos-pq/.env.example kronos-pq/.env
-# Edita .env con tus propias credenciales seguras
 
-# 4. Iniciar el Bridge MCP y la Web
+# 4. Iniciar el Bridge (Web + API + MCP)
 cd kronos-pq && node scripts/mcp-bridge.mjs
 # Visita http://localhost:4000
 ```
 
 🔒 Seguridad y Certificaciones
 
-· ML-DSA-87: Implementación compatible con NIST FIPS 204. No cuenta con certificación formal de NIST.
-· NOM-151: Diseñado para integrarse con flujos NOM-151, pero no sustituye a un Prestador de Servicios de Certificación (PSC) acreditado.
-· Auditoría: Cero vulnerabilidades reportadas en dependencias (API, Web y MCP).
+· Criptografía: Implementación compatible con NIST FIPS 204 (ML-DSA-87). No cuenta con certificación formal de NIST ni CMVP.
+· Legal: Diseñado para integrarse con flujos NOM-151, pero no sustituye a un Prestador de Servicios de Certificación (PSC) acreditado.
+· Auditoría: Cero vulnerabilidades reportadas en dependencias (API, Web y MCP). Smoke test criptográfico incluido en CI.
 
-🗺️ Roadmap (v0.1.0-alpha)
+---
 
-☑ Criptografía Post-Cuántica (ML-DSA-87)
-☑ Servidor MCP con identidad persistente
-☑ Autenticación JWT y Rate Limiting
-☑ Pipeline CI/CD con Docker Smoke Test
-☐ Integración con TSA (RFC 3161)
-☐ Firma PAdES-B-T
-☐ KMS / AWS S3 Object Lock
-
-📄 Licencia y Autoría
-
-· Código: Propietario (Todos los derechos reservados).
-· Autor: Marco Antonio Rojas Valdovinos.
+<div align="center">
+  <sub>Construido por Marco Antonio Rojas Valdovinos. Código Propietario.</sub>
+</div>
