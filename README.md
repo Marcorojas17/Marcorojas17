@@ -8,11 +8,14 @@
 ```
 
 https://img.shields.io/badge/Estado-Alpha_v0.1.0-ffcc00?style=for-the-badge&labelColor=050816
-https://img.shields.io/badge/Criptograf%C3%ADa-ML--DSA--87-22d3ee?style=for-the-badge&labelColor=050816
+https://img.shields.io/badge/Criptograf%C3%ADa-ML--DSA--87_via_@noble-22d3ee?style=for-the-badge&labelColor=050816
 https://img.shields.io/badge/Agentes-MCP-a855f7?style=for-the-badge&labelColor=050816
 https://img.shields.io/badge/Licencia-Propietaria-ef4444?style=for-the-badge&labelColor=050816
 
-Plataforma de integridad y trazabilidad para evidencia digital. Compatible con NOM-151 y FIPS 204 (no certificado).
+https://img.shields.io/badge/Demo_Web-En_Vivo-7EE787?style=for-the-badge
+https://img.shields.io/badge/CI_Passing-brightgreen?style=for-the-badge&logo=github
+
+Plataforma de integridad y trazabilidad para evidencia digital. Compatible con flujos NOM-151 y FIPS 204 (No certificado).
 
 </div>
 
@@ -20,67 +23,76 @@ Plataforma de integridad y trazabilidad para evidencia digital. Compatible con N
 
 📖 Acerca de SYCRO
 
-Los modelos de IA y los sistemas actuales dependen de infraestructuras criptográficas clásicas (RSA/ECDSA) que serán obsoletas frente a la computación cuántica.
+SYCRO es una infraestructura diseñada para verificar la integridad de documentos digitales y la posesión de la clave firmante mediante criptografía post-cuántica y agentes de IA.
 
-SYCRO es un protocolo de infraestructura agéntica diseñado para validar la integridad y autoría de documentos digitales. Utiliza criptografía post-cuántica real implementada a través de la librería auditada @noble/post-quantum (ML-DSA-87) y expone sus capacidades a agentes autónomos mediante el Model Context Protocol (MCP).
+Implementa firmas digitales mediante ML-DSA-87 a través de la librería auditada @noble/post-quantum y expone sus capacidades a agentes autónomos mediante un servidor MCP (Model Context Protocol).
 
-🧩 Módulos del ecosistema
+🧩 Arquitectura de Módulos
 
-Módulo Descripción Estado
-Core Crypto Motor de firmas reales ML-DSA-87 (NIST FIPS 204) vía @noble. ✅ Implementado
-API Bridge Servidor Express con Auth (JWT/Bcrypt), Rate Limiting y CORS. ✅ Implementado
-MCP Server Protocolo JSON-RPC para comunicación con agentes de IA. ✅ Implementado
-Web UI Dashboard de atestación con Glassmorphism y navegación. ✅ Implementado
-CI/CD GitHub Actions con Docker Smoke Test y auditoría de vulnerabilidades. ✅ Implementado
-Sellos TSA Integración con autoridades de sellado de tiempo (RFC 3161). ⏳ Planificado
-KMS / IPFS Anclaje a AWS S3 Object Lock e IPFS para persistencia. ⏳ Planificado
+Módulo Stack Descripción
+Core Crypto Node.js Motor de firmas ML-DSA-87 real (@noble/post-quantum).
+API REST Fastify Endpoints de autenticación y firma (apps/api).
+MCP Bridge Express Puente HTTP entre la Web, la API y el servidor MCP local (kronos-pq).
+Web UI Vite + Vanilla JS Dashboard de atestación (Glassmorphism).
+MCP Server Node.js Servidor JSON-RPC para agentes autónomos.
 
-[!WARNING]
-DEMO vs PRODUCCIÓN: Si el repositorio incluye algún Mock o simulación visual, está claramente etiquetado en examples/mock/. La criptografía utilizada en la API y en el servidor MCP es REAL y se valida mediante el smoke test oficial (test:crypto).
+🛡️ Estado del Proyecto
 
-🧬 Arquitectura y Flujo
+Funcionalidad Estado
+Firma y verificación ML-DSA-87 ✅ Implementado y verificado (Smoke test)
+Servidor MCP (JSON-RPC) ✅ Implementado
+Auth JWT + Bcrypt en API ✅ Implementado
+CI/CD (GitHub Actions + Docker) ✅ Implementado
+Sellos TSA (RFC 3161) ⏳ Planificado
+Anclaje IPFS / S3 Object Lock ⏳ Planificado
 
-```mermaid
-flowchart LR
-  A[Documento] --> B[SHA-256 Hash]
-  B --> C[Análisis IA - MCP]
-  C --> D[Firma ML-DSA-87]
-  D --> E[Verificación Independiente]
-  
-  classDef core fill:#050816,stroke:#22d3ee,stroke-width:2px,color:#fff;
-  classDef agent fill:#050816,stroke:#a855f7,stroke-width:2px,color:#fff;
-  class A,B,E core;
-  class C,D agent;
-```
+Última auditoría npm: 2026-10-29. API, Web y MCP reportan 0 vulnerabilidades HIGH.
 
-🚀 Instalación rápida
+🚀 Instalación y Uso Local
 
 ```bash
 # 1. Clonar el repositorio
 git clone https://github.com/Marcorojas17/Marcorojas17.git
 cd Marcorojas17
 
-# 2. Instalar dependencias (usando npm ci para builds reproducibles)
+# 2. Instalar dependencias (usando npm ci para reproducibilidad)
 cd apps/api && npm ci && cd ../..
 cd apps/web && npm ci && cd ../..
 cd kronos-pq && npm ci && cd ..
 
-# 3. Configurar variables de entorno
-cp kronos-pq/.env.example kronos-pq/.env
+# 3. Compilar el frontend (necesario antes de servir con el bridge)
+cd apps/web && npm run build && cd ../..
 
-# 4. Iniciar el Bridge (Web + API + MCP)
+# 4. Configurar variables de entorno
+cp kronos-pq/.env.example kronos-pq/.env
+# Edita .env con tus credenciales.
+# NOTA: El servidor generará automáticamente un archivo keys.json
+# con las llaves PQ si no existe. Nunca subas keys.json a Git.
+
+# 5. Iniciar el Bridge (sirve la web compilada y la API)
 cd kronos-pq && node scripts/mcp-bridge.mjs
 # Visita http://localhost:4000
 ```
 
-🔒 Seguridad y Certificaciones
+🌐 Despliegue
 
-· Criptografía: Implementación compatible con NIST FIPS 204 (ML-DSA-87). No cuenta con certificación formal de NIST, FIPS ni CMVP.
-· Legal: Diseñado para integrarse con flujos NOM-151, pero no sustituye a un Prestador de Servicios de Certificación (PSC) acreditado.
-· Auditoría: Smoke test criptográfico reproducible incluido en el pipeline de CI (npm run test:crypto).
+· Frontend: Desplegado en Vercel. Root Directory: apps/web.
+· Backend: Desplegado en Render. Root Directory: kronos-pq. Requiere variables de entorno (JWT_SECRET, ADMIN_USER, ADMIN_PASS, PQ_PUBLIC_KEY, PQ_SECRET_KEY).
+
+🔒 Seguridad, Legalidad y Limitaciones
+
+· Alcance de la Firma: Una firma ML-DSA-87 demuestra la integridad del documento y la posesión de la clave privada asociada. No demuestra por sí sola la autoría legal o identidad civil del firmante.
+· FIPS 204: Implementación compatible con ML-DSA-87/FIPS 204. No certificada por NIST o CMVP.
+· NOM-151: El sistema es compatible con flujos NOM-151, pero no sustituye a un Prestador de Servicios de Certificación (PSC) acreditado.
+· Limitaciones actuales: No incluye sellado de tiempo externo (RFC 3161) ni custodia de llaves en HSM físico.
+
+📄 Licencia y Contacto
+
+· Licencia: Propietaria. Todos los derechos reservados. Ver LICENSE.
+· Seguridad: Reporta vulnerabilidades a security@sycrovaldovinos.dev (Placeholder actual).
 
 ---
 
 <div align="center">
-  <sub>Construido por Marco Antonio Valdovinos. Código Propietario.</sub>
+  <sub>Construido por Marco Antonio Valdovinos. v0.1.0-alpha.3</sub>
 </div>
