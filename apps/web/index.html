@@ -239,8 +239,13 @@
             const password = document.getElementById('password').value;
             const doc = document.getElementById('document').value;
             const btn = document.querySelector('button');
-            btn.textContent = "Authenticating...";
-            document.getElementById('results').style.display = 'none';
+            const resBox = document.getElementById('results');
+            
+            btn.textContent = "Connecting...";
+            resBox.style.display = 'block';
+            document.getElementById('res-hash').textContent = "Esperando API...";
+            document.getElementById('res-time').textContent = "-";
+            document.getElementById('res-sig').textContent = "Esperando API...";
 
             try {
                 const authRes = await fetch(`${API_URL}/api/auth`, {
@@ -248,10 +253,15 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, password })
                 });
-                if (!authRes.ok) throw new Error("Credenciales inválidas");
-                const authData = await authRes.json();
                 
+                if (!authRes.ok) {
+                    throw new Error(`Error Auth: ${authRes.status} ${authRes.statusText}`);
+                }
+                
+                const authData = await authRes.json();
                 btn.textContent = "Signing...";
+                document.getElementById('res-hash').textContent = "Firmando documento...";
+
                 const response = await fetch(`${API_URL}/api/sign`, {
                     method: 'POST',
                     headers: { 
@@ -260,18 +270,21 @@
                     },
                     body: JSON.stringify({ document: doc })
                 });
+                
+                if (!response.ok) throw new Error(`Error Sign: ${response.status}`);
                 const data = await response.json();
                 
                 if (data.success) {
                     document.getElementById('res-hash').textContent = data.documentHash;
                     document.getElementById('res-time').textContent = data.timestamp;
                     document.getElementById('res-sig').textContent = data.signature;
-                    document.getElementById('results').style.display = 'block';
                 } else {
-                    alert("Error: " + data.error);
+                    throw new Error(data.error || "Error desconocido");
                 }
             } catch (err) {
-                alert("Error: " + err.message);
+                document.getElementById('res-hash').textContent = "❌ ERROR";
+                document.getElementById('res-time').textContent = err.message;
+                document.getElementById('res-sig').textContent = "Revisa la consola o los logs de Render.";
             }
             btn.textContent = "Sign Document";
         }
