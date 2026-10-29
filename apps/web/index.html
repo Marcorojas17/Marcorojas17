@@ -6,160 +6,32 @@
     <title>SYCRO VALDOVINOS | Trust Layer</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600&family=JetBrains+Mono:wght@400;700&display=swap');
-
-        :root {
-            --bg-color: #050505;
-            --glass-bg: rgba(13, 17, 23, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --accent-cyan: #22d3ee;
-            --accent-purple: #a855f7;
-            --text-main: #E6EDF3;
-            --text-muted: #8B949E;
-        }
-
+        :root { --bg-color: #050505; --glass-bg: rgba(13, 17, 23, 0.6); --glass-border: rgba(255, 255, 255, 0.08); --accent-cyan: #22d3ee; --accent-purple: #a855f7; --text-main: #E6EDF3; --text-muted: #8B949E; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body { 
-            background-color: var(--bg-color); 
-            color: var(--text-main); 
-            font-family: 'Space Grotesk', sans-serif;
-            display: flex; 
-            height: 100vh; 
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Fondo Animado de Lujo */
-        .bg-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.4;
-            animation: float 10s infinite ease-in-out alternate;
-        }
+        body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Space Grotesk', sans-serif; display: flex; height: 100vh; overflow: hidden; position: relative; }
+        .bg-orb { position: absolute; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.4; animation: float 10s infinite ease-in-out alternate; }
         .orb-1 { width: 400px; height: 400px; background: var(--accent-cyan); top: -10%; left: -10%; }
         .orb-2 { width: 300px; height: 300px; background: var(--accent-purple); bottom: -10%; right: -10%; animation-delay: -5s; }
         .orb-3 { width: 200px; height: 200px; background: #00ffaa; top: 40%; left: 40%; opacity: 0.15; animation-delay: -2s; }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 50px) scale(1.1); }
-        }
-
-        /* Sidebar de Cristal */
-        .sidebar { 
-            width: 260px; 
-            background: var(--glass-bg); 
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-right: 1px solid var(--glass-border); 
-            padding: 30px 20px; 
-            display: flex; 
-            flex-direction: column;
-            z-index: 10;
-        }
-
-        .logo { 
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-cyan); 
-            font-size: 24px; 
-            font-weight: 700; 
-            margin-bottom: 40px; 
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
-        }
-
-        .nav-item { 
-            padding: 12px 15px; 
-            color: var(--text-muted); 
-            cursor: pointer; 
-            border-radius: 8px; 
-            margin-bottom: 8px; 
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
+        @keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(50px, 50px) scale(1.1); } }
+        .sidebar { width: 260px; background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-right: 1px solid var(--glass-border); padding: 30px 20px; display: flex; flex-direction: column; z-index: 10; }
+        .logo { font-family: 'JetBrains Mono', monospace; color: var(--accent-cyan); font-size: 24px; font-weight: 700; margin-bottom: 40px; letter-spacing: 2px; text-shadow: 0 0 10px rgba(34, 211, 238, 0.5); }
+        .nav-item { padding: 12px 15px; color: var(--text-muted); cursor: pointer; border-radius: 8px; margin-bottom: 8px; font-weight: 600; transition: all 0.3s ease; }
         .nav-item:hover { background: rgba(255, 255, 255, 0.05); color: var(--text-main); }
-        .nav-item.active { 
-            background: linear-gradient(90deg, rgba(34, 211, 238, 0.15) 0%, transparent 100%);
-            color: var(--accent-cyan); 
-            border-left: 3px solid var(--accent-cyan);
-        }
-
-        /* Área Principal */
+        .nav-item.active { background: linear-gradient(90deg, rgba(34, 211, 238, 0.15) 0%, transparent 100%); color: var(--accent-cyan); border-left: 3px solid var(--accent-cyan); }
         .main { flex: 1; padding: 40px; overflow-y: auto; z-index: 10; }
-
         h2 { font-weight: 300; font-size: 32px; margin-bottom: 30px; letter-spacing: -0.5px; }
         h2 span { font-weight: 600; color: var(--accent-cyan); }
-
-        /* Tarjeta de Cristal (Glassmorphism) */
-        .card { 
-            background: var(--glass-bg); 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border); 
-            padding: 30px; 
-            border-radius: 16px; 
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-        }
-
+        .card { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: 30px; border-radius: 16px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); max-width: 600px; }
         .card p.desc { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; font-family: 'JetBrains Mono', monospace; }
-
-        input { 
-            width: 100%; 
-            padding: 15px; 
-            background: rgba(0, 0, 0, 0.4); 
-            border: 1px solid rgba(255,255,255,0.1); 
-            color: white; 
-            border-radius: 8px; 
-            margin-bottom: 20px; 
-            font-family: 'JetBrains Mono', monospace; 
-            font-size: 14px;
-            transition: border 0.3s ease;
-        }
-
+        input { width: 100%; padding: 15px; background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 8px; margin-bottom: 20px; font-family: 'JetBrains Mono', monospace; font-size: 14px; transition: border 0.3s ease; }
         input:focus { outline: none; border-color: var(--accent-cyan); box-shadow: 0 0 10px rgba(34, 211, 238, 0.2); }
-
-        button { 
-            padding: 15px 30px; 
-            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
-            color: #000; 
-            border: none; 
-            border-radius: 8px; 
-            font-weight: 700; 
-            font-size: 16px;
-            cursor: pointer; 
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            width: 100%;
-        }
-
-        button:hover { 
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(168, 85, 247, 0.4);
-        }
-
-        /* Resultados */
-        .result-box { 
-            background: rgba(0, 0, 0, 0.5); 
-            padding: 20px; 
-            border-radius: 8px; 
-            border: 1px solid rgba(34, 211, 238, 0.3); 
-            margin-top: 25px; 
-            display: none; 
-            font-family: 'JetBrains Mono', monospace;
-        }
-
+        button { padding: 15px 30px; background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%); color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; width: 100%; }
+        button:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(168, 85, 247, 0.4); }
+        .result-box { background: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 8px; border: 1px solid rgba(34, 211, 238, 0.3); margin-top: 25px; display: none; font-family: 'JetBrains Mono', monospace; }
         .label { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
         .value { color: var(--accent-cyan); word-break: break-all; margin-bottom: 15px; font-size: 13px; }
         .value.sig { color: var(--accent-purple); font-size: 11px; }
-
-        .section { display: none; animation: fadeIn 0.4s ease; }
-        .section.active { display: block; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
         @media (max-width: 768px) {
             body { flex-direction: column; }
             .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--glass-border); padding: 15px; flex-direction: row; overflow-x: auto; align-items: center; }
@@ -191,7 +63,7 @@
                 <p class="desc">Secure flow: Login → Document → SHA-256 → MCP Sign.</p>
                 
                 <input type="text" id="username" value="valdovinos" placeholder="Username">
-                <input type="password" id="password"  placeholder="Password">
+                <input type="password" id="password" value="Valdovinos-Secure-Password-2026" placeholder="Password">
                 <input type="text" id="document" value="Contrato Legal NOM-151 - Valdovinos" placeholder="Document text...">
                 
                 <button id="sign-btn" onclick="signMessage()">Sign Document</button>
@@ -211,7 +83,8 @@
     </div>
 
     <script>
-        const API_URL = import.meta.env.VITE_API_URL || '';
+        // HARDCODEAMOS LA URL PARA EVITAR PROBLEMAS CON VERCEL ENV
+        const API_URL = "https://sycro-api.onrender.com";
 
         async function signMessage() {
             const btn = document.getElementById('sign-btn');
@@ -228,11 +101,6 @@
             resHash.style.color = "#22d3ee";
 
             try {
-                if (!API_URL) {
-                    throw new Error("VITE_API_URL no está configurada en Vercel.");
-                }
-
-                // 1. Autenticación
                 const authRes = await fetch(`${API_URL}/api/auth`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -248,7 +116,6 @@
                 btn.textContent = "Signing...";
                 resHash.textContent = "Signing document...";
 
-                // 2. Firma
                 const signRes = await fetch(`${API_URL}/api/sign`, {
                     method: 'POST',
                     headers: { 
@@ -261,7 +128,6 @@
                 if (!signRes.ok) throw new Error(`Error Sign: ${signRes.status}`);
                 const data = await signRes.json();
 
-                // 3. Mostrar resultado
                 resHash.textContent = data.documentHash;
                 resTime.textContent = data.timestamp;
                 resSig.textContent = data.signature;
