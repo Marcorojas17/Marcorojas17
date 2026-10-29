@@ -33,7 +33,7 @@ if (!ADMIN_USER || !ADMIN_PASS) {
 const ADMIN_HASH = bcrypt.hashSync(ADMIN_PASS, 10);
 
 const app = express();
-app.use(cors({ origin: ['http://localhost:4000', 'http://127.0.0.1:4000'] }));
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(rateLimit({ windowMs: 1 * 60 * 1000, max: 20 }));
 app.use(express.static(path.resolve(__dirname, '../../apps/web/dist')));
