@@ -3,15 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SYCRO VALDOVINOS | Post-Quantum Trust Layer</title>
-    <meta name="description" content="SYCRO VALDOVINOS: Plataforma de integridad documental con criptografía post-cuántica (ML-DSA-87) y servidores MCP para agentes de IA. Compatible con NOM-151.">
-    <meta name="keywords" content="criptografía post-cuántica, ML-DSA-87, NOM-151, legal tech, integridad documental, IA, MCP, SHA-256">
-    <meta name="author" content="Marco Antonio Rojas Valdovinos">
-    <meta property="og:title" content="SYCRO VALDOVINOS | Post-Quantum Trust Layer">
-    <meta property="og:description" content="Verifica la integridad de documentos con criptografía post-cuántica y agentes de IA.">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-
+    <title>SYCRO VALDOVINOS | Trust Layer</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600&family=JetBrains+Mono:wght@400;700&display=swap');
 
@@ -46,9 +38,9 @@
             opacity: 0.4;
             animation: float 10s infinite ease-in-out alternate;
         }
-        .orb-1 { width: 400px; height: 400px; background: var(--accent-cyan); top: -10%; left: -10%; animation-delay: 0s; }
+        .orb-1 { width: 400px; height: 400px; background: var(--accent-cyan); top: -10%; left: -10%; }
         .orb-2 { width: 300px; height: 300px; background: var(--accent-purple); bottom: -10%; right: -10%; animation-delay: -5s; }
-        .orb-3 { width: 200px; height: 200px; background: #00ffaa; top: 40%; left: 40%; opacity: 0.2; animation-delay: -2s; }
+        .orb-3 { width: 200px; height: 200px; background: #00ffaa; top: 40%; left: 40%; opacity: 0.15; animation-delay: -2s; }
 
         @keyframes float {
             0% { transform: translate(0, 0) scale(1); }
@@ -86,8 +78,6 @@
             margin-bottom: 8px; 
             font-weight: 600;
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
         }
 
         .nav-item:hover { background: rgba(255, 255, 255, 0.05); color: var(--text-main); }
@@ -170,7 +160,6 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Responsive Móvil */
         @media (max-width: 768px) {
             body { flex-direction: column; }
             .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--glass-border); padding: 15px; flex-direction: row; overflow-x: auto; align-items: center; }
@@ -183,114 +172,110 @@
     </style>
 </head>
 <body>
-    <!-- Luces de fondo -->
     <div class="bg-orb orb-1"></div>
     <div class="bg-orb orb-2"></div>
     <div class="bg-orb orb-3"></div>
 
     <div class="sidebar">
         <div class="logo">SYCRO</div>
-        <div class="nav-item active" onclick="showSection('live', this)">LIVE</div>
-        <div class="nav-item" onclick="showSection('history', this)">HISTORY</div>
-        <div class="nav-item" onclick="showSection('nodes', this)">NODES</div>
-        <div class="nav-item" onclick="showSection('analysis', this)">ANALYSIS</div>
+        <div class="nav-item active">LIVE</div>
+        <div class="nav-item">HISTORY</div>
+        <div class="nav-item">NODES</div>
+        <div class="nav-item">ANALYSIS</div>
     </div>
 
     <div class="main">
-        <div id="live" class="section active">
+        <div class="section active">
             <h2>Live <span>Attestation</span></h2>
             <div class="card">
                 <p class="desc">Secure flow: Login → Document → SHA-256 → MCP Sign.</p>
-                <input type="text" id="username" placeholder="Username" style="margin-bottom:10px;">
-                <input type="password" id="password" placeholder="Password" style="margin-bottom:20px;">
+                
+                <input type="text" id="username" value="valdovinos" placeholder="Username">
+                <input type="password" id="password" value="Valdovinos-Secure-Password-2026" placeholder="Password">
                 <input type="text" id="document" value="Contrato Legal NOM-151 - Valdovinos" placeholder="Document text...">
-                <button onclick="signMessage()">Sign Document</button>
+                
+                <button id="sign-btn" onclick="signMessage()">Sign Document</button>
                 
                 <div id="results" class="result-box">
                     <div class="label">Document Hash (SHA-256):</div>
                     <div id="res-hash" class="value">-</div>
+                    
                     <div class="label">Timestamp:</div>
                     <div id="res-time" class="value">-</div>
+                    
                     <div class="label">Signature (ML-DSA-87):</div>
                     <div id="res-sig" class="value sig">-</div>
                 </div>
             </div>
         </div>
-        
-        <div id="history" class="section"><h2>His<span>tory</span></h2><div class="card"><p class="desc">No attestations yet. Sign a document in LIVE.</p></div></div>
-        <div id="nodes" class="section"><h2>Net<span>work</span> Nodes</h2><div class="card"><p class="desc">Connected to: <strong>SYCRO Local Node</strong><br><br>Status: <span style="color: var(--accent-cyan); text-shadow: 0 0 10px var(--accent-cyan);">● Active</span></p></div></div>
-        <div id="analysis" class="section"><h2>AI <span>Analysis</span></h2><div class="card"><p class="desc">Risk analysis is handled by the local AI agent (ai-attest.mjs).</p></div></div>
     </div>
 
     <script>
-        function showSection(id, el) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            el.classList.add('active');
-        }
-
-                
-        
         const API_URL = import.meta.env.VITE_API_URL || '';
 
         async function signMessage() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const doc = document.getElementById('document').value;
-            const btn = document.querySelector('button');
+            const btn = document.getElementById('sign-btn');
             const resBox = document.getElementById('results');
-            
+            const resHash = document.getElementById('res-hash');
+            const resTime = document.getElementById('res-time');
+            const resSig = document.getElementById('res-sig');
+
             btn.textContent = "Connecting...";
             resBox.style.display = 'block';
-            document.getElementById('res-hash').textContent = "Esperando API...";
-            document.getElementById('res-time').textContent = "-";
-            document.getElementById('res-sig').textContent = "Esperando API...";
+            resHash.textContent = "Waiting for API...";
+            resTime.textContent = "-";
+            resSig.textContent = "Waiting for API...";
+            resHash.style.color = "#22d3ee";
 
             try {
+                if (!API_URL) {
+                    throw new Error("VITE_API_URL no está configurada en Vercel.");
+                }
+
+                // 1. Autenticación
                 const authRes = await fetch(`${API_URL}/api/auth`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, password })
+                    body: JSON.stringify({ 
+                        username: document.getElementById('username').value, 
+                        password: document.getElementById('password').value 
+                    })
                 });
-                
-                if (!authRes.ok) {
-                    throw new Error(`Error Auth: ${authRes.status} ${authRes.statusText}`);
-                }
-                
-                const authData = await authRes.json();
-                btn.textContent = "Signing...";
-                document.getElementById('res-hash').textContent = "Firmando documento...";
 
-                const response = await fetch(`${API_URL}/api/sign`, {
+                if (!authRes.ok) throw new Error(`Error Auth: ${authRes.status}`);
+                const authData = await authRes.json();
+
+                btn.textContent = "Signing...";
+                resHash.textContent = "Signing document...";
+
+                // 2. Firma
+                const signRes = await fetch(`${API_URL}/api/sign`, {
                     method: 'POST',
                     headers: { 
-                        'Content-Type': 'application/json', 
-                        'Authorization': `Bearer ${authData.token}` 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authData.token}`
                     },
-                    body: JSON.stringify({ document: doc })
+                    body: JSON.stringify({ document: document.getElementById('document').value })
                 });
-                
-                if (!response.ok) throw new Error(`Error Sign: ${response.status}`);
-                const data = await response.json();
-                
-                if (data.success) {
-                    document.getElementById('res-hash').textContent = data.documentHash;
-                    document.getElementById('res-time').textContent = data.timestamp;
-                    document.getElementById('res-sig').textContent = data.signature;
-                } else {
-                    throw new Error(data.error || "Error desconocido");
-                }
+
+                if (!signRes.ok) throw new Error(`Error Sign: ${signRes.status}`);
+                const data = await signRes.json();
+
+                // 3. Mostrar resultado
+                resHash.textContent = data.documentHash;
+                resTime.textContent = data.timestamp;
+                resSig.textContent = data.signature;
+                resHash.style.color = "#7EE787";
+
             } catch (err) {
-                document.getElementById('res-hash').textContent = "❌ ERROR";
-                document.getElementById('res-time').textContent = err.message;
-                document.getElementById('res-sig').textContent = "Revisa la consola o los logs de Render.";
+                resHash.textContent = "❌ ERROR";
+                resHash.style.color = "#ef4444";
+                resTime.textContent = err.message;
+                resSig.textContent = "Revisa la consola o los logs de Render.";
+            } finally {
+                btn.textContent = "Sign Document";
             }
-            btn.textContent = "Sign Document";
         }
-
-
-
     </script>
 </body>
 </html>
