@@ -6,9 +6,17 @@
   "scripts": {
     "demo": "node examples/demo.mjs",
     "sign": "node scripts/sign.mjs",
-    "verify": "node scripts/verify.mjs"
+    "verify": "node scripts/verify.mjs",
+    "ai:attest": "node scripts/ai-attest.mjs",
+    "mcp:serve": "node scripts/mcp-server.mjs"
   },
   "dependencies": {
-    "@noble/post-quantum": "^0.4.0"
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@noble/post-quantum": "^0.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
   }
 }
