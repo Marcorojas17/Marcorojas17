@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SYCRO VALDOVINOS | Trust Layer</title>
+    <title>SYCRO VALDOVINOS | Secure Trust Layer</title>
     <style>
         body { background-color: #0B0E14; color: #E6EDF3; font-family: monospace; margin: 0; display: flex; height: 100vh; }
-        .sidebar { width: 250px; background: #0d1117; border-right: 1px solid #30363d; padding: 20px; display: flex; flex-direction: column; }
+        .sidebar { width: 250px; background: #0d1117; border-right: 1px solid #30363d; padding: 20px; }
         .logo { color: #22d3ee; font-size: 20px; font-weight: bold; margin-bottom: 30px; }
         .nav-item { padding: 10px; color: #8B949E; cursor: pointer; border-radius: 4px; margin-bottom: 5px; }
         .nav-item.active { background: #1f6feb; color: white; }
@@ -15,7 +15,9 @@
         input { width: 100%; padding: 10px; background: #050816; border: 1px solid #30363d; color: white; border-radius: 4px; margin-bottom: 10px; font-family: monospace; box-sizing: border-box;}
         button { padding: 10px 20px; background: #22d3ee; color: #0B0E14; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
         button:hover { background: #a855f7; color: white; }
-        pre { background: #050816; padding: 15px; border-radius: 4px; color: #7EE787; white-space: pre-wrap; border: 1px solid #30363d; }
+        .result-box { background: #050816; padding: 15px; border-radius: 4px; border: 1px solid #30363d; margin-top: 15px; display: none; }
+        .label { color: #8B949E; font-size: 12px; }
+        .value { color: #7EE787; word-break: break-all; margin-bottom: 10px; }
         .section { display: none; }
         .section.active { display: block; }
     </style>
@@ -30,41 +32,30 @@
     </div>
 
     <div class="main">
-        <!-- LIVE SECTION -->
         <div id="live" class="section active">
             <h2>Live Attestation</h2>
             <div class="card">
-                <p style="color: #8B949E; font-size: 13px;">Sign a document hash using Post-Quantum ML-DSA-87.</p>
-                <input type="text" id="msg" value="Contrato Legal NOM-151 - Valdovinos" placeholder="Enter message...">
-                <button onclick="signMessage()">Sign Message</button>
-                <pre id="result">Waiting for action...</pre>
+                <p style="color: #8B949E; font-size: 13px;">Secure flow: Document → SHA-256 Hash → MCP Sign.</p>
+                <input type="text" id="document" value="Contrato Legal NOM-151 - Valdovinos" placeholder="Enter document text...">
+                <button onclick="signMessage()">Sign Document</button>
+                
+                <div id="results" class="result-box">
+                    <div class="label">Document Hash (SHA-256):</div>
+                    <div id="res-hash" class="value">-</div>
+                    
+                    <div class="label">Timestamp:</div>
+                    <div id="res-time" class="value">-</div>
+                    
+                    <div class="label">Signature (ML-DSA-87):</div>
+                    <div id="res-sig" class="value" style="font-size: 10px;">-</div>
+                </div>
             </div>
         </div>
-
-        <!-- HISTORY SECTION -->
-        <div id="history" class="section">
-            <h2>History</h2>
-            <div class="card">
-                <p>No attestations yet. Sign a message in the LIVE section to see it here.</p>
-            </div>
-        </div>
-
-        <!-- NODES SECTION -->
-        <div id="nodes" class="section">
-            <h2>Network Nodes</h2>
-            <div class="card">
-                <p>Connected to: <strong>SYCRO Local Node</strong></p>
-                <p>Status: <span style="color: #7EE787;">● Active</span></p>
-            </div>
-        </div>
-
-        <!-- ANALYSIS SECTION -->
-        <div id="analysis" class="section">
-            <h2>AI Analysis</h2>
-            <div class="card">
-                <p>Risk analysis is handled by the local AI agent in the backend (<code>ai-attest.mjs</code>).</p>
-            </div>
-        </div>
+        
+        <!-- Otras secciones igual que antes -->
+        <div id="history" class="section"><h2>History</h2><div class="card">Coming soon.</div></div>
+        <div id="nodes" class="section"><h2>Nodes</h2><div class="card">Status: <span style="color: #7EE787;">● Active</span></div></div>
+        <div id="analysis" class="section"><h2>Analysis</h2><div class="card">AI Risk Engine ready.</div></div>
     </div>
 
     <script>
@@ -76,30 +67,34 @@
         }
 
         async function signMessage() {
-            const msg = document.getElementById('msg').value;
-            const resDiv = document.getElementById('result');
-            resDiv.textContent = "⏳ Connecting to MCP...";
-            resDiv.style.color = "#8B949E";
+            const doc = document.getElementById('document').value;
+            const btn = document.querySelector('button');
+            btn.textContent = "Signing...";
+            document.getElementById('results').style.display = 'none';
 
             try {
                 const response = await fetch('/api/sign', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: msg })
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer SYCRO_SECRET_TOKEN' // <-- Autenticación
+                    },
+                    body: JSON.stringify({ document: doc })
                 });
                 const data = await response.json();
                 
                 if (data.success) {
-                    resDiv.textContent = data.result;
-                    resDiv.style.color = "#7EE787";
+                    document.getElementById('res-hash').textContent = data.documentHash;
+                    document.getElementById('res-time').textContent = data.timestamp;
+                    document.getElementById('res-sig').textContent = data.signature;
+                    document.getElementById('results').style.display = 'block';
                 } else {
-                    resDiv.textContent = "Error: " + data.error;
-                    resDiv.style.color = "#ef4444";
+                    alert("Error: " + data.error);
                 }
             } catch (err) {
-                resDiv.textContent = "Connection error: " + err.message;
-                resDiv.style.color = "#ef4444";
+                alert("Connection error: " + err.message);
             }
+            btn.textContent = "Sign Document";
         }
     </script>
 </body>

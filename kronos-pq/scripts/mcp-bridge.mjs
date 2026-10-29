@@ -1,76 +1,82 @@
 import express from 'express';
 import cors from 'cors';
+import rateLimit from 'express-rate-limit';
 import { spawn } from 'child_process';
 import readline from 'readline';
+import crypto from 'crypto';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
-app.use(cors());
+const PORT = 4000;
+
+// 1. Seguridad: CORS Restringido (Ajusta en prod al dominio real)
+app.use(cors({ origin: ['http://localhost:4000', 'http://127.0.0.1:4000'] }));
 app.use(express.json());
-app.use(express.static('../apps/web/dist'));
 
-app.post('/api/sign', (req, res) => {
-  const { message } = req.body;
-  if (!message) return res.status(400).json({ error: "Message required" });
+// 2. Seguridad: Rate Limiting (Máximo 10 peticiones por minuto por IP)
+const limiter = rateLimit({ windowMs: 1 * 60 * 1000, max: 10 });
+app.use('/api/', limiter);
 
-  const mcpProcess = spawn('node', ['scripts/mcp-server.mjs']);
-  let errorData = "";
+// 3. Servir la web resolviendo ruta absoluta
+app.use(express.static(path.resolve(__dirname, '../../apps/web/dist')));
 
-  mcpProcess.stderr.on('data', (data) => { errorData += data.toString(); });
+// 4. Proceso MCP Persistente (Se inicia 1 vez, no en cada request)
+const mcpProcess = spawn('node', [path.resolve(__dirname, 'mcp-server.mjs')]);
+const rl = readline.createInterface({ input: mcpProcess.stdout, terminal: false });
+let pendingRequest = null;
 
-  // Escuchar las respuestas línea por línea
-  const rl = readline.createInterface({ input: mcpProcess.stdout, terminal: false });
-
-  let initialized = false;
-  let sentCall = false;
-
-  rl.on('line', (line) => {
-    try {
-      const parsed = JSON.parse(line);
-      
-      // 1. El servidor responde al Initialize
-      if (parsed.id === 0 && !initialized) {
-        initialized = true;
-        // 2. Enviar notificación de inicializado
-        mcpProcess.stdin.write(JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized" }) + "\n");
-        
-        // 3. Enviar la petición de firma
-        setTimeout(() => {
-          mcpProcess.stdin.write(JSON.stringify({ 
-            jsonrpc: "2.0", id: 1, method: "tools/call", 
-            params: { name: "sycro_sign_document", arguments: { message } } 
-          }) + "\n");
-          sentCall = true;
-        }, 100);
-      } 
-      // 4. El servidor responde con la firma
-      else if (parsed.id === 1 && sentCall) {
-        mcpProcess.kill();
-        if (parsed.result && parsed.result.content) {
-          res.json({ success: true, result: parsed.result.content[0].text });
-        } else {
-          res.status(500).json({ error: "MCP failed", details: JSON.stringify(parsed) });
-        }
-      }
-    } catch (e) {
-      // Ignorar líneas que no sean JSON puro
+rl.on('line', (line) => {
+  try {
+    const parsed = JSON.parse(line);
+    if (parsed.id === 1 && pendingRequest) {
+      pendingRequest(parsed.result.content[0].text);
+      pendingRequest = null;
     }
-  });
-
-  // Iniciar el handshake
-  mcpProcess.stdin.write(JSON.stringify({ 
-    jsonrpc: "2.0", id: 0, method: "initialize", 
-    params: { protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "sycro-web", version: "1.0.0" } } 
-  }) + "\n");
-
-  // Límite de tiempo por si algo falla (5 segundos)
-  setTimeout(() => {
-    if (!res.headersSent) {
-      mcpProcess.kill();
-      res.status(500).json({ error: "MCP Timeout", details: errorData });
-    }
-  }, 5000);
+  } catch (e) { /* Ignorar logs */ }
 });
 
-app.listen(4000, () => {
-  console.log('🌐 Bridge MCP corriendo en http://localhost:4000');
+// Handshake inicial con MCP
+mcpProcess.stdin.write(JSON.stringify({ jsonrpc: "2.0", id: 0, method: "initialize", params: { protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "sycro-web" } } }) + "\n");
+mcpProcess.stdin.write(JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized" }) + "\n");
+
+// 5. Ruta Protegida con Auth (Bearer Token)
+app.post('/api/sign', (req, res) => {
+  // Autenticación simple (En prod usar JWT/OAuth)
+  const authHeader = req.headers.authorization;
+  if (!authHeader || authHeader !== 'Bearer SYCRO_SECRET_TOKEN') {
+    return res.status(401).json({ error: "Unauthorized" });
+  }
+
+  const { document } = req.body;
+  if (!document) return res.status(400).json({ error: "Document required" });
+
+  // 6. Flujo Criptográfico Formal: Hash + Metadata
+  const documentHash = crypto.createHash('sha256').update(document).digest('hex');
+  const nonce = crypto.randomBytes(16).toString('hex');
+  const timestamp = new Date().toISOString();
+  const payload = JSON.stringify({ documentHash, nonce, timestamp });
+
+  // Enviar al proceso MCP persistente
+  pendingRequest = (result) => {
+    const parsedData = JSON.parse(result);
+    res.json({
+      success: true,
+      documentHash,
+      timestamp,
+      publicKey: parsedData.publicKey.substring(0, 16) + "...",
+      signature: parsedData.signature,
+      signatureLength: parsedData.length
+    });
+  };
+
+  mcpProcess.stdin.write(JSON.stringify({ 
+    jsonrpc: "2.0", id: 1, method: "tools/call", 
+    params: { name: "sycro_sign_document", arguments: { payload } } 
+  }) + "\n");
+});
+
+app.listen(PORT, () => {
+  console.log(`🛡️ SYCRO Secure Bridge en http://localhost:${PORT}`);
 });

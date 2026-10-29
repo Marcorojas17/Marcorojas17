@@ -7,8 +7,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const keyFile = path.resolve(__dirname, '../keys.json');
 
 if (!fs.existsSync(keyFile)) {
@@ -25,28 +24,31 @@ const server = new Server(
   { capabilities: { tools: {} } }
 );
 
-// API Moderna del SDK
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [{
     name: "sycro_sign_document",
-    description: "Signs a message using Post-Quantum ML-DSA-87 via SYCRO VALDOVINOS.",
+    description: "Signs a structured payload using ML-DSA-87.",
     inputSchema: {
       type: "object",
-      properties: { message: { type: "string" } },
-      required: ["message"]
+      properties: { payload: { type: "string" } },
+      required: ["payload"]
     }
   }]
 }));
 
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   if (request.params.name === "sycro_sign_document") {
-    const msg = request.params.arguments.message;
-    const signature = ml_dsa87.sign(secretKey, new TextEncoder().encode(msg));
+    const payload = request.params.arguments.payload;
+    const signature = ml_dsa87.sign(secretKey, new TextEncoder().encode(payload));
     
     return {
       content: [{
         type: "text",
-        text: `✅ SYCRO Signature Valid.\nPub: ${bytesToHex(publicKey).substring(0,16)}...\nSig: ${bytesToHex(signature).substring(0,16)}...\nLength: ${signature.length} bytes`
+        text: JSON.stringify({
+          publicKey: bytesToHex(publicKey),
+          signature: bytesToHex(signature),
+          length: signature.length
+        })
       }]
     };
   }
