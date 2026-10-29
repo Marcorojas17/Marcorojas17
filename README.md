@@ -134,3 +134,10 @@ Toluca, MX → Global | 51% Human / 49% AI
 Agensi • GitHub • X
 
 </div>
+
+> **KRONOS ATTESTATION — ML-DSA-87 (FIPS 204 Level 5)**
+> - Date: 2026-10-28
+> - Message: `Kronos Protocol — Toluca Global — 2026-10-28`
+> - Pub: 2592B | Sig: 4627B | Valid: ✅ NIST FIPS 204
+> - Verify: `cd kronos-pq && node scripts/verify.mjs`
+

@@ -2,3 +2,4 @@ node_modules/
 keys.json
 signature.json
 .env
+package-lock.json
