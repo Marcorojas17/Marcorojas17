@@ -232,6 +232,8 @@
 
                 
         
+        const API_URL = import.meta.env.VITE_API_URL || '';
+
         async function signMessage() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
@@ -241,7 +243,7 @@
             document.getElementById('results').style.display = 'none';
 
             try {
-                const authRes = await fetch('/api/auth', {
+                const authRes = await fetch(`${API_URL}/api/auth`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, password })
@@ -250,9 +252,12 @@
                 const authData = await authRes.json();
                 
                 btn.textContent = "Signing...";
-                const response = await fetch('/api/sign', {
+                const response = await fetch(`${API_URL}/api/sign`, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authData.token}` },
+                    headers: { 
+                        'Content-Type': 'application/json', 
+                        'Authorization': `Bearer ${authData.token}` 
+                    },
                     body: JSON.stringify({ document: doc })
                 });
                 const data = await response.json();
