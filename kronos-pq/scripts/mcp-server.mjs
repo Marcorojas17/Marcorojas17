@@ -3,28 +3,22 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { ListToolsRequestSchema, CallToolRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 import { ml_dsa87 } from '@noble/post-quantum/ml-dsa';
 import { bytesToHex } from '@noble/hashes/utils';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import crypto from 'crypto';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const keyFile = path.resolve(__dirname, '../keys.json');
-
+// Cargar llaves desde variables de entorno (más seguro para la nube)
 let publicKey, secretKey;
+const envPublicKey = process.env.PQ_PUBLIC_KEY;
+const envSecretKey = process.env.PQ_SECRET_KEY;
 
-// Si el archivo de llaves no existe (ej. en Render), lo generamos
-if (fs.existsSync(keyFile)) {
-  const data = JSON.parse(fs.readFileSync(keyFile, 'utf8'));
-  publicKey = Buffer.from(data.publicKey, 'hex');
-  secretKey = Buffer.from(data.secretKey, 'hex');
+if (envPublicKey && envSecretKey) {
+  publicKey = Buffer.from(envPublicKey, 'hex');
+  secretKey = Buffer.from(envSecretKey, 'hex');
 } else {
-  console.log("🔑 Generando nueva identidad post-cuántica para Render...");
+  console.log("🔑 Generando llaves en memoria (no persistentes)...");
   const seed = crypto.getRandomValues(new Uint8Array(32));
   const keypair = ml_dsa87.keygen(seed);
   publicKey = Buffer.from(keypair.publicKey);
   secretKey = Buffer.from(keypair.secretKey);
-  fs.writeFileSync(keyFile, JSON.stringify({ publicKey: bytesToHex(publicKey), secretKey: bytesToHex(secretKey) }), 'utf8');
 }
 
 const server = new Server(

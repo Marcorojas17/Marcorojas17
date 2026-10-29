@@ -11,17 +11,13 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-// VALIDACIÓN ESTRICTA: Fallar si faltan secretos
-
 const { PORT = 4000 } = process.env;
 const JWT_SECRET = (process.env.JWT_SECRET || '').trim();
 const ADMIN_USER = (process.env.ADMIN_USER || '').trim();
 const ADMIN_PASS = (process.env.ADMIN_PASS || '').trim();
 
-
 if (!JWT_SECRET || JWT_SECRET.length < 32) {
-  console.error("❌ FATAL: JWT_SECRET debe existir y tener al menos 32 caracteres.");
+  console.error("❌ FATAL: JWT_SECRET inválido.");
   process.exit(1);
 }
 if (!ADMIN_USER || !ADMIN_PASS) {
@@ -29,14 +25,11 @@ if (!ADMIN_USER || !ADMIN_PASS) {
   process.exit(1);
 }
 
-// Hash de la contraseña en memoria al arrancar (en producción, viene de la DB)
 const ADMIN_HASH = bcrypt.hashSync(ADMIN_PASS, 10);
-
 const app = express();
 app.use(cors({ origin: ['http://localhost:4000', 'http://127.0.0.1:4000', 'https://sycro-valdovinos.vercel.app'] }));
 app.use(express.json());
 app.use(rateLimit({ windowMs: 1 * 60 * 1000, max: 20 }));
-app.use(express.static(path.resolve(__dirname, '../../apps/web/dist')));
 
 // MCP
 const mcpProcess = spawn('node', [path.resolve(__dirname, 'mcp-server.mjs')]);
@@ -57,7 +50,7 @@ rl.on('line', (line) => {
       else resolve(parsed.result);
       pendingRequests.delete(parsed.id);
     }
-  } catch (e) { }
+  } catch (e) {}
 });
 
 mcpProcess.stdin.write(JSON.stringify({ 
@@ -65,18 +58,12 @@ mcpProcess.stdin.write(JSON.stringify({
   params: { protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "sycro-web" } } 
 }) + "\n");
 
-// AUTH con bcrypt
+// AUTH (sin logs de depuración)
 app.post('/api/auth', async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) return res.status(400).json({ error: "Credenciales requeridas" });
   
-  
-  console.log('--- DEBUG AUTH ---');
-  console.log('Recibido:', username, password);
-  console.log('Esperado:', ADMIN_USER, ADMIN_PASS);
-  console.log('Hash válido?', bcrypt.compareSync(password, ADMIN_HASH));
-
-if (username !== ADMIN_USER || !bcrypt.compareSync(password, ADMIN_HASH)) {
+  if (username !== ADMIN_USER || !bcrypt.compareSync(password, ADMIN_HASH)) {
     return res.status(401).json({ error: "Credenciales inválidas" });
   }
 
@@ -95,7 +82,7 @@ const requireAuth = (req, res, next) => {
   }
 };
 
-app.post('/api/sign', requireAuth, (req, res) => {
+app.post('/api/sign', requireAuth, async (req, res) => {
   const { document } = req.body;
   if (!document) return res.status(400).json({ error: "Document required" });
 
@@ -105,29 +92,35 @@ app.post('/api/sign', requireAuth, (req, res) => {
   const payload = JSON.stringify({ documentHash, nonce, timestamp });
   const requestId = crypto.randomUUID();
 
-  const promise = new Promise((resolve, reject) => {
-    pendingRequests.set(requestId, { resolve, reject });
-    mcpProcess.stdin.write(JSON.stringify({ 
-      jsonrpc: "2.0", id: requestId, method: "tools/call", 
-      params: { name: "sycro_sign_document", arguments: { payload } } 
-    }) + "\n");
-    setTimeout(() => {
-      if (pendingRequests.has(requestId)) {
-        pendingRequests.delete(requestId);
-        reject(new Error("MCP Timeout"));
-      }
-    }, 5000);
-  });
+  try {
+    const result = await new Promise((resolve, reject) => {
+      pendingRequests.set(requestId, { resolve, reject });
+      mcpProcess.stdin.write(JSON.stringify({ 
+        jsonrpc: "2.0", id: requestId, method: "tools/call", 
+        params: { name: "sycro_sign_document", arguments: { payload } } 
+      }) + "\n");
+      setTimeout(() => {
+        if (pendingRequests.has(requestId)) {
+          pendingRequests.delete(requestId);
+          reject(new Error("MCP Timeout"));
+        }
+      }, 5000);
+    });
 
-  promise.then(result => {
     const parsedData = JSON.parse(result.content[0].text);
-    res.json({ success: true, documentHash, timestamp, publicKey: parsedData.publicKey.substring(0, 16) + "...", signature: parsedData.signature, signatureLength: parsedData.length });
-  }).catch(err => res.status(500).json({ error: err.message }));
+    res.json({
+      success: true, documentHash, timestamp,
+      publicKey: parsedData.publicKey.substring(0, 16) + "...",
+      signature: parsedData.signature, signatureLength: parsedData.length
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message, details: "MCP Server error" });
+  }
 });
 
-
+// Health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', service: 'SYCRO MCP Bridge', timestamp: new Date().toISOString() });
+  res.json({ status: 'ok', service: 'SYCRO MCP Bridge' });
 });
 
-app.listen(PORT, () => console.log(`🛡️ SYCRO Secure Bridge en http://localhost:${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`🛡️ SYCRO Secure Bridge en http://0.0.0.0:${PORT}`));
