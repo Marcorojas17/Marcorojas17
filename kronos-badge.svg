@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="28">
+  <rect width="280" height="28" rx="6" fill="#0B0E14"/>
+  <rect x="1" y="1" width="278" height="26" rx="5" fill="none" stroke="#1f6feb" stroke-opacity="0.5"/>
+  <text x="12" y="18" font-family="monospace" font-size="11" fill="#7EE787" font-weight="700">■</text>
+  <text x="24" y="18" font-family="monospace" font-size="11" fill="#E6EDF3" font-weight="700">ML-DSA-87 VERIFIED</text>
+  <text x="165" y="18" font-family="monospace" font-size="11" fill="#8B949E">|</text>
+  <text x="177" y="18" font-family="monospace" font-size="11" fill="#58A6FF">4627B FIPS-204</text>
+</svg>

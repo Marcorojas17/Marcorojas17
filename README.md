@@ -1,11 +1,6 @@
 <div align="center">
 
 ```bash
-[■] SYSTEM BOOT: ARKHÉ ZERO — TOLUCA-GLOBAL // PROTOCOL
-[■■] 1330 files verified | Kintsugi: golden cracks active
-[■■■] Post-Quantum: KYBER-1024 / DILITHIUM5 (ML-DSA-87) OK
-[■■■■] 51% Human / 49% AI — VALDOVINOS CONSENSUS
-[■■■■■] NOM-151 + IPFS + Ledger Attestation READY
 ```
 
 <pre align="center">
@@ -21,6 +16,7 @@ TOLUCA-GLOBAL | KRONOS PROTOCOL | POST-QUANTUM
 
 <a href="https://git.io/typing-svg">
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=22D3EE&center=true&vCenter=true&width=700&lines=Senior+Software+Engineer;Architect+of+Kronos+Protocol;Post-Quantum+%2B+AI+Agents+%2B+Crypto;51%25+Human+%2F+49%25+AI" alt="Typing" />
+<br/><img src="kronos-badge.svg" width="280" /> <img src="kronos-badge-dark.svg" width="420" />
 </a>
 
 <br/>
