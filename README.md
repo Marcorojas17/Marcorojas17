@@ -22,18 +22,21 @@ Plataforma de integridad y trazabilidad para evidencia digital. Compatible con N
 
 Los modelos de IA y los sistemas actuales dependen de infraestructuras criptográficas clásicas (RSA/ECDSA) que serán obsoletas frente a la computación cuántica.
 
-SYCRO es un protocolo de infraestructura agéntica diseñado para validar la integridad y autoría de documentos digitales. Utiliza criptografía post-cuántica real (ML-DSA-87) y expone sus capacidades a agentes autónomos mediante el Model Context Protocol (MCP).
+SYCRO es un protocolo de infraestructura agéntica diseñado para validar la integridad y autoría de documentos digitales. Utiliza criptografía post-cuántica real implementada a través de la librería auditada @noble/post-quantum (ML-DSA-87) y expone sus capacidades a agentes autónomos mediante el Model Context Protocol (MCP).
 
 🧩 Módulos del ecosistema
 
 Módulo Descripción Estado
-Core Crypto Motor de firmas post-cuánticas ML-DSA-87 (NIST FIPS 204). ✅ Implementado
+Core Crypto Motor de firmas reales ML-DSA-87 (NIST FIPS 204) vía @noble. ✅ Implementado
 API Bridge Servidor Express con Auth (JWT/Bcrypt), Rate Limiting y CORS. ✅ Implementado
 MCP Server Protocolo JSON-RPC para comunicación con agentes de IA. ✅ Implementado
 Web UI Dashboard de atestación con Glassmorphism y navegación. ✅ Implementado
 CI/CD GitHub Actions con Docker Smoke Test y auditoría de vulnerabilidades. ✅ Implementado
 Sellos TSA Integración con autoridades de sellado de tiempo (RFC 3161). ⏳ Planificado
 KMS / IPFS Anclaje a AWS S3 Object Lock e IPFS para persistencia. ⏳ Planificado
+
+[!WARNING]
+DEMO vs PRODUCCIÓN: Si el repositorio incluye algún Mock o simulación visual, está claramente etiquetado en examples/mock/. La criptografía utilizada en la API y en el servidor MCP es REAL y se valida mediante el smoke test oficial (test:crypto).
 
 🧬 Arquitectura y Flujo
 
@@ -57,12 +60,12 @@ flowchart LR
 git clone https://github.com/Marcorojas17/Marcorojas17.git
 cd Marcorojas17
 
-# 2. Instalar dependencias (API, Web y MCP)
-cd apps/api && npm install && cd ../..
-cd apps/web && npm install && cd ../..
-cd kronos-pq && npm install && cd ..
+# 2. Instalar dependencias (usando npm ci para builds reproducibles)
+cd apps/api && npm ci && cd ../..
+cd apps/web && npm ci && cd ../..
+cd kronos-pq && npm ci && cd ..
 
-# 3. Configurar variables de entorno (usar .env.example)
+# 3. Configurar variables de entorno
 cp kronos-pq/.env.example kronos-pq/.env
 
 # 4. Iniciar el Bridge (Web + API + MCP)
@@ -72,12 +75,12 @@ cd kronos-pq && node scripts/mcp-bridge.mjs
 
 🔒 Seguridad y Certificaciones
 
-· Criptografía: Implementación compatible con NIST FIPS 204 (ML-DSA-87). No cuenta con certificación formal de NIST ni CMVP.
+· Criptografía: Implementación compatible con NIST FIPS 204 (ML-DSA-87). No cuenta con certificación formal de NIST, FIPS ni CMVP.
 · Legal: Diseñado para integrarse con flujos NOM-151, pero no sustituye a un Prestador de Servicios de Certificación (PSC) acreditado.
-· Auditoría: Cero vulnerabilidades reportadas en dependencias (API, Web y MCP). Smoke test criptográfico incluido en CI.
+· Auditoría: Smoke test criptográfico reproducible incluido en el pipeline de CI (npm run test:crypto).
 
 ---
 
 <div align="center">
-  <sub>Construido por Marco Antonio Rojas Valdovinos. Código Propietario.</sub>
+  <sub>Construido por Marco Antonio Valdovinos. Código Propietario.</sub>
 </div>
